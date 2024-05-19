@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Add Depense</h1>
+<form [formGroup]="createPlanningForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Nom Projet</mat-label>
+      <input matInput formControlName="nomProjet" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Date Debut Validite</mat-label>
+      <input matInput [matDatepicker]="startDatePicker" formControlName="dateDebutValidite" required>
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Date Fin Validite</mat-label>
+      <input matInput [matDatepicker]="endDatePicker" formControlName="dateFinValidite" required>
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Employe IDs (comma-separated)</mat-label>
+      <mat-select formControlName="employeIds" multiple>
+        <mat-option *ngFor="let employee of employees" [value]="employee.empId">
+          {{ employee.firstName }} {{ employee.lastName }} <!-- Adjust this to match your employee data structure -->
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>     
+    <button mat-raised-button color="primary" type="submit">Add</button>
+  </div>
+  </form>
+  

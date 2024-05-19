@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Add Convention</h1>
+<form (ngSubmit)="addConvention()">
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Nom de la convention</mat-label>
+            <input matInput [(ngModel)]="conventionData.nom" name="nom" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Objet de la convention</mat-label>
+            <input matInput [(ngModel)]="conventionData.objet" name="objet" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="pickerDebut" placeholder="Date de début"
+            [(ngModel)]="conventionData.dateDebut" name="dateDebut">
+            <ngx-mat-datepicker-toggle matSuffix [for]="pickerDebut">
+            </ngx-mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #pickerDebut>
+            </ngx-mat-datetime-picker>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="pickerFin" placeholder="Date de fin"
+            [(ngModel)]="conventionData.dateFin" name="dateFin">
+            <ngx-mat-datepicker-toggle matSuffix [for]="pickerFin">
+            </ngx-mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #pickerFin>
+            </ngx-mat-datetime-picker>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Partenaire</mat-label>
+            <mat-select [(ngModel)]="conventionData.partenaireId" name="partenaireId" required>
+                <mat-option *ngFor="let partenaire of partenaires" [value]="partenaire.id">
+                    {{ partenaire.nom }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+    </div>
+    <div mat-dialog-actions [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Add</button>
+    </div>
+</form>
+
+  

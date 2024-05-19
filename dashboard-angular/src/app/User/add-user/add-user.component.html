@@ -1,0 +1,95 @@
+<h1 mat-dialog-title>Add User</h1>
+<form (ngSubmit)="registerUser()">
+<div mat-dialog-content>
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput [(ngModel)]="newUser.username" name="username" required #username="ngModel" placeholder="Username">
+                  </mat-form-field>
+                  <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                    <span *ngIf="username.errors?.['required']" style="color:red;">Username is required</span>
+                  </div>
+                <!-- Password -->
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [(ngModel)]="newUser.password" name="password" type="password" required #password="ngModel" placeholder="Password">
+                  </mat-form-field>
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <span *ngIf="password.errors?.['required']" style="color:red;">Password is required</span>
+                  </div>
+              
+                <!-- First Name -->
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput [(ngModel)]="newUser.firstName" name="firstName" required #firstName="ngModel" placeholder="First Name">
+                  </mat-form-field>
+                  <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                    <span *ngIf="firstName.errors?.['required']" style="color:red;">First Name is required</span>
+                  </div>
+              
+                <!-- Last Name -->
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [(ngModel)]="newUser.lastName" name="lastName" required #lastName="ngModel" placeholder="Last Name">
+                  </mat-form-field>
+                  <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                    <span *ngIf="lastName.errors?.['required']" style="color:red;">Last Name is required</span>
+                  </div>
+              
+                <!-- Email Address -->
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Email Address</mat-label>
+                    <input matInput [(ngModel)]="newUser.email" name="email" type="email" required email #email="ngModel" placeholder="Email Address">
+                  </mat-form-field>
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <span *ngIf="email.errors?.['required']" style="color:red;">Email is required</span>
+                    <span *ngIf="email.errors?.['email']" style="color:red;">Enter a valid email address</span>
+                  </div>
+              
+                <!-- CIN -->
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>CIN</mat-label>
+                    <input matInput [(ngModel)]="newUser.cin" name="cin" type="number" required pattern="[0-9]{8}" #cin="ngModel" placeholder="CIN">
+                  </mat-form-field>
+                  <div *ngIf="cin.invalid && (cin.dirty || cin.touched)">
+                    <span *ngIf="cin.errors?.['required']" style="color:red;">CIN is required</span>
+                    <span *ngIf="cin.errors?.['pattern']" style="color:red;">CIN must be 8 numbers</span>
+                  </div>
+              
+                <!-- Address -->
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput [(ngModel)]="newUser.address" name="address" required #address="ngModel" placeholder="Address">
+                  </mat-form-field>
+                  <div *ngIf="address.invalid && (address.dirty || address.touched)">
+                    <span *ngIf="address.errors?.['required']" style="color:red;">Address is required</span>
+                  </div>
+              
+                <!-- Phone Number -->
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput [(ngModel)]="newUser.phone" name="phone" type="number" required pattern="[0-9]{8}" #phone="ngModel" placeholder="Phone Number">
+                  </mat-form-field>
+                  <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                    <span *ngIf="phone.errors?.['required']" style="color:red;">Phone number is required</span>
+                    <span *ngIf="phone.errors?.['pattern']" style="color:red;">Phone number must be 8 numbers</span>
+                  </div>
+              
+                <!-- Birth Date -->
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Birth Date</mat-label>
+                    <input matInput [matDatepicker]="birthDatePicker" [(ngModel)]="newUser.birthDate" name="birthDate" #birthDate="ngModel" required>
+                    <mat-datepicker-toggle matSuffix [for]="
+                    birthDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #birthDatePicker></mat-datepicker>
+                    <mat-error *ngIf="birthDate.invalid && (birthDate.dirty || birthDate.touched)">
+                    <span *ngIf="birthDate.errors?.['required']">Birth Date is required</span>
+                    </mat-error>
+                    </mat-form-field>
+                    
+                      <br>
+                    </div>
+                <div mat-dialog-action [align]="'end'">
+                    <button mat-raised-button color="warn" mat-dialog-close>Close</button>   
+                    <button mat-raised-button color="primary" type="submit">Add</button>
+                  </div>
+     </form>

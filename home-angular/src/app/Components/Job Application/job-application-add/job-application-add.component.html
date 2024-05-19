@@ -1,0 +1,47 @@
+<!-- job-application-form.component.html -->
+<h1 mat-dialog-title>Apply for Job</h1>
+<div mat-dialog-content>
+  <!-- Add form fields for job application -->
+  <!-- <input type="hidden" [(ngModel)]="jobApplication.jobOfferId" name="jobOfferId">
+  <input type="hidden" [(ngModel)]="jobApplication.userId" name="userId"> -->
+
+  <mat-form-field class="mb-3">
+    <mat-label>Applicant Name</mat-label>
+    <input matInput [(ngModel)]="applicantName" name="applicantName">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="mb-3">
+    <mat-label>Applicant Email</mat-label>
+    <input matInput [(ngModel)]="applicantEmail" name="applicantEmail" type="email">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="mb-3">
+    <mat-label>Applicant Phone</mat-label>
+    <input matInput [(ngModel)]="applicantPhone" name="applicantPhone" type="tel">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="mb-3">
+    <mat-label>Applicant Address</mat-label>
+    <input matInput [(ngModel)]="applicantAddress" name="applicantAddress">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="mb-3">
+    <mat-label>Years of Experience</mat-label>
+    <input matInput [(ngModel)]="yearsOfExperience" name="yearsOfExperience" type="number">
+  </mat-form-field>
+
+  <div class="mb-3">
+    <label for="resume">Resume:</label>
+    <input class="form-control" type="file" id="resume" (change)="onFileChange($event, 'resume')">
+  </div>
+  <div class="mb-3">
+    <label for="coverLetter">Cover Letter:</label>
+    <input class="form-control" type="file" id="coverLetter" (change)="onFileChange($event, 'coverLetter')">
+  </div>
+
+  <!-- Add other form fields as needed -->
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="submitApplication()">Submit</button>
+</div>

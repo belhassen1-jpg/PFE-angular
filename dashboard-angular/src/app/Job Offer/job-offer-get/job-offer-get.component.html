@@ -1,0 +1,18 @@
+<div *ngIf="jobOffer">
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title><h2>{{ jobOffer.title }}</h2></mat-card-title>
+      <mat-card-subtitle>{{ jobOffer.location }}</mat-card-subtitle>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      <p>Categorie : {{ jobOffer.category }}</p>
+      <p><strong>Keywords:</strong> {{ jobOffer.keywords }}</p>
+      <p>- Description : {{ jobOffer.description }}</p>
+      <p>- Project Details : {{ jobOffer.projectDetails }}</p>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+  

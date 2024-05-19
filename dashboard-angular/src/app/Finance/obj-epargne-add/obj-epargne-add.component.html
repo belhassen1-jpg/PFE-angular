@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Add Objectif Epargne</h1>
+<form #depForm="ngForm">
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>description</mat-label>
+    <input matInput [(ngModel)]="newObjEpargne.description" name="description" required #description="ngModel">
+    <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
+      <span *ngIf="description.errors?.['required']">Description is required</span>
+    </mat-error>
+  </mat-form-field>  
+  <mat-form-field>
+    <mat-label>objectif Montant</mat-label>
+    <input matInput type="number" [(ngModel)]="newObjEpargne.objectifMontant" name="objectifMontant" required
+     #objectifMontant="ngModel">
+    <mat-error *ngIf="objectifMontant.invalid && (objectifMontant.dirty || objectifMontant.touched)">
+      <span *ngIf="objectifMontant.errors?.['required']">Description is required</span>
+    </mat-error>
+  </mat-form-field>  
+  <!-- <mat-form-field>
+    <mat-label>montant Actuel</mat-label>
+    <input matInput type="number" [(ngModel)]="newObjEpargne.montantActuel" name="montantActuel" required
+     #montantActuel="ngModel">
+    <mat-error *ngIf="montantActuel.invalid && (montantActuel.dirty || montantActuel.touched)">
+      <span *ngIf="montantActuel.errors?.['required']">Description is required</span>
+    </mat-error>
+  </mat-form-field>   -->
+  <mat-form-field>
+    <mat-label>date Debut</mat-label>
+    <input matInput [matDatepicker]="dateDebutPicker" [(ngModel)]="newObjEpargne.dateDebut" name="dateDebut" required>
+    <mat-datepicker-toggle matSuffix [for]="dateDebutPicker"></mat-datepicker-toggle>
+    <mat-datepicker #dateDebutPicker></mat-datepicker>
+  </mat-form-field>  
+  <mat-form-field>
+    <mat-label>date Fin</mat-label>
+    <input matInput [matDatepicker]="dateFinPicker" [(ngModel)]="newObjEpargne.dateFin" name="dateFin" required>
+    <mat-datepicker-toggle matSuffix [for]="dateFinPicker"></mat-datepicker-toggle>
+    <mat-datepicker #dateFinPicker></mat-datepicker>
+  </mat-form-field>  
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>     
+  <button mat-raised-button color="primary" (click)="addObjEpargne()">Add</button>
+</div>
+</form>

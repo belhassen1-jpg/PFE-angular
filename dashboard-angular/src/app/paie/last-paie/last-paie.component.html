@@ -1,0 +1,26 @@
+<div *ngIf="paie">
+    <mat-card class="card">
+      <mat-card-header class="header">
+        <mat-card-title class="title">Last Paie</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="content">
+        <div class="summary">
+        </div>
+        <div class="details">
+          <p><strong>Date Paie:</strong> {{ paie.datePaie | date }}</p>
+          <p><strong>Heures Travaillees:</strong> {{ paie.heuresTravaillees }} hours</p>
+          <p><strong>taux Horaire:</strong> {{ paie.tauxHoraire | currency:'EUR':'symbol':'1.2-2' }}</p>
+          <p><strong>Salaire Brut:</strong> {{ paie.salaireBrut | currency:'EUR':'symbol':'1.2-2' }}</p>
+          <p><strong>Salaire Net:</strong> {{ paie.salaireNet | currency:'EUR':'symbol':'1.2-2' }}</p>
+          <p><strong>Cotisations Sociales:</strong> {{ paie.cotisationsSociales | currency:'EUR':'symbol':'1.2-2' }}</p>
+          <p><strong>Impot Sur Revenu:</strong> {{ paie.impotSurRevenu | currency:'EUR':'symbol':'1.2-2' }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    </div>
+
+    <!-- Add Item Button -->
+  <br>
+  <div>
+    <button mat-raised-button color="primary" (click)="addPaie()">Add Paie</button>
+  </div>

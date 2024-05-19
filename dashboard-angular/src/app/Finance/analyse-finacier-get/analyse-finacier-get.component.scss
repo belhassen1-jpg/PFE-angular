@@ -1,0 +1,29 @@
+.financial-analysis-card {
+    width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f7f7f7; /* Light gray background */
+  }
+  
+  .header {
+    background-color: #42a5f5; /* Blue header background */
+    color: white;
+  }
+  
+  .title {
+    font-size: 20px;
+    padding-bottom: 10px; /* Add space below the title */
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
+  .summary {
+    margin-bottom: 16px;
+  }
+  
+  .details p {
+    margin-bottom: 8px;
+  }
+  

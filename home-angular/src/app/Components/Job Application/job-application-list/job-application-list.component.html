@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+  <title>Custom Bootstrap 4 card</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<style>
+  html {
+    font-size: 14px;
+  }
+  
+  .container {
+    font-size: 14px;
+    color: #666666;
+    font-family: "Open Sans";
+  }
+</style>
+
+<body>
+  <br>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <select class="form-select" [(ngModel)]="searchCriteria" (change)="applyFilter()">
+        <option value="name">Name</option>
+        <option value="email">Email</option>
+      </select>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search...">
+  </div>
+  
+  <div class="container">
+  <div class="row pt-5 m-auto">
+    <div class="col-md-6 col-lg-4 pb-3" *ngFor="let application of jobApplications">
+      <div class="card card-custom bg-white border-white border-0">
+        <div class="card-custom-img" style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+        <div class="card-custom-avatar">
+          <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar" />
+        </div>
+        <div class="card-body" style="overflow-y: auto; position: relative;">
+          <div>
+            <h4 class="card-title">{{ application.jobOffer.title }}</h4>
+            <h4 class="card-title">{{ application.applicantName }}</h4>
+            <p class="card-text">Email: {{ application.applicantEmail }}</p>
+            <p class="card-text">Phone: {{ application.applicantPhone }}</p>
+            <p class="card-text">Address: {{ application.applicantAddress }}</p>
+            <p class="card-text">Years of Experience: {{ application.yearsOfExperience }}</p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="card-footer" style="background: inherit; border-color: inherit;">
+            <!-- <button class="btn btn-outline-primary" (click)="downloadResume(application.id)">Download Files</button> -->
+            <!-- <button mat-button color="primary" >Menu</button> -->
+                   <button mat-fab extended color="primary" [matMenuTriggerFor]="menu">
+              <mat-icon>download</mat-icon>
+              
+            </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="downloadResume(application.id)">Download Resume</button>
+                <button mat-menu-item (click)="downloadCoverLetter(application.id)">Download CoverLetter</button>
+              </mat-menu>
+          <span [ngClass]="{'badge': true, 'status-badge': true, 'badge-warning': application.status === 'EN_ATTENTE', 'badge-success': application.status === 'ACCEPTEE', 'badge-danger': application.status === 'REFUSEE'}">{{ application.status }}</span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+
+</html>

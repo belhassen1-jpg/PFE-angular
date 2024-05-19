@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Add FeuilleTemps</h1>
+<form (ngSubmit)="onSubmit()" #feuilleTempsForm="ngForm">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Planning</mat-label>
+      <mat-select [(ngModel)]="planningId" name="planningId" required>
+        <mat-option *ngFor="let planning of plannings" [value]="planning.id">
+          {{ planning.nomProjet }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Jour</mat-label>
+      <input matInput [matDatepicker]="jourPicker" name="jour" [(ngModel)]="FeuilleTempsData.jour" required>
+      <mat-datepicker-toggle matSuffix [for]="jourPicker"></mat-datepicker-toggle>
+      <mat-datepicker #jourPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>heure Debut</mat-label>
+        <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choose a date"
+        [(ngModel)]="FeuilleTempsData.heureDebut" name="heureDebut">
+        <ngx-mat-datepicker-toggle matSuffix [for]="pickerCustomIcon">
+          <!-- <mat-icon ngxMatDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+        </ngx-mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #pickerCustomIcon>
+        </ngx-mat-datetime-picker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>heure Fin</mat-label>
+              <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choose a date"
+              [(ngModel)]="FeuilleTempsData.heureFin" name="heureFin">
+              <ngx-mat-datepicker-toggle matSuffix [for]="pickerCustomIcon">
+                <!-- <mat-icon ngxMatDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+              </ngx-mat-datepicker-toggle>
+              <ngx-mat-datetime-picker #pickerCustomIcon>
+              </ngx-mat-datetime-picker>
+              </mat-form-field>
+   
+  </div>
+  <div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>  
+    <button mat-raised-button color="primary" type="submit">Add FeuilleTemps</button>  
+  </div>
+  <br>
+</form>

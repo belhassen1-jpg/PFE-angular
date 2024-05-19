@@ -1,0 +1,32 @@
+<div class="employee-details-container">
+  <h2>Détails de l'employé</h2>
+  <mat-card>
+    <mat-card-content>
+      <p><span class="detail-label">Taux horaire :</span> {{ selectedEmployee.tauxHoraire }}</p>
+      <p><span class="detail-label">Taux pour heures supplémentaires :</span> {{ selectedEmployee.tauxHeuresSupplementaires }}</p>
+      <p><span class="detail-label">Montant des primes :</span> {{ selectedEmployee.montantPrimes }}</p>
+      <p><span class="detail-label">Déductions :</span> {{ selectedEmployee.montantDeductions }}</p>
+      <p><span class="detail-label">Nombre d'événements auxquels a participé :</span> {{ numberOfEventsParticipated }}</p>
+      <p><span class="detail-label">Nombre des formations auxquels a participé :</span> {{ NumberOfformationsParticipated }}</p>
+      <p><span class="detail-label">Total des jours de congé :</span> {{ totalJoursConges }}</p>
+      <p><span class="detail-label">Nombre d'heures travaillées du Planning :</span> {{ numberOfHoursWorked }}</p>
+    </mat-card-content>
+  </mat-card>
+  
+  <div class="actions-container">
+    <button mat-flat-button color="warn" (click)="openConfirmDialog()">Retirer de tous les événements</button>
+    <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">Infos</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="viewReport()">Voir le rapport</button>
+      <button mat-menu-item (click)="viewFeuilleTemps(selectedEmployee.empId)">Feuille de temps</button>
+    </mat-menu>  
+
+    <button mat-flat-button color="primary" [matMenuTriggerFor]="menuPaie">Paie</button>
+    <mat-menu #menuPaie="matMenu">
+      <button mat-menu-item (click)="viewLastPaie(selectedEmployee.empId)">Voir la dernière paie</button>
+      <button mat-menu-item (click)="viewLastBullPaie(selectedEmployee.empId)">Voir le dernier bulletin de paie</button>
+      <button mat-menu-item (click)="viewBullPaieList(selectedEmployee.empId)">Voir les bulletins de paie</button>
+      <button mat-menu-item (click)="viewDeclarationFiscale(selectedEmployee.empId)">Voir la déclaration fiscale</button>
+    </mat-menu>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+body {
+    background: rgb(16, 107, 169)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(43, 17, 213);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #111781
+}
+
+/* .profile-button:focus {
+    background: #682773;
+    box-shadow: none
+} */
+
+.profile-button:active {
+    background: #2254dd;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+.button-creer-demission:hover {
+    background-color: red; /* Change to your preferred shade of red */
+    color: white; /* Change text color if needed */
+}
+.button-demande-conge {
+    background-color: green; // Or any color you prefer
+    border-color: green; // Adjust the border color if necessary
+    
+    &:hover {
+      background-color: darken(green, 10%); // This will darken the hover color
+      border-color: darken(green, 10%);
+    }
+  }
+  
+  // You may want to keep the margin-left class separate if it's used elsewhere
+  .margin-left {
+      margin-left: 10px; // Adjust the margin as needed
+  }
+
+.margin-left {
+    margin-left: 10px; /* Ajustez la marge selon vos besoins */
+}

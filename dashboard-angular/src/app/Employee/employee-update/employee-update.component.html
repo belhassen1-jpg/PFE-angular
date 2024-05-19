@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>Update Employee</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput [(ngModel)]="data.firstName" name="firstName" required #firstName="ngModel">
+    <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+      <span *ngIf="firstName.errors?.['required']">First Name is required</span>
+    </mat-error>
+  </mat-form-field>
+<br>
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput [(ngModel)]="data.lastName" name="lastName" required #lastName="ngModel">
+    <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+      <span *ngIf="lastName.errors?.['required']">First Name is required</span>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="data.title" name="title" required #title="ngModel">
+    <mat-error *ngIf="title.invalid && (title.dirty || title.touched)">
+      <span *ngIf="title.errors?.['required']">Title is required</span>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Hourly Rate</mat-label>
+    <input matInput [(ngModel)]="data.tauxHoraire" name="tauxHoraire" required #tauxHoraire="ngModel">
+    <mat-error *ngIf="tauxHoraire.invalid && (tauxHoraire.dirty || tauxHoraire.touched)">
+      <span *ngIf="tauxHoraire.errors?.['required']">Hourly Rate is required</span>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Overtime Rate</mat-label>
+    <input matInput [(ngModel)]="data.tauxHeuresSupplementaires" name="tauxHeuresSupplementaires" required #tauxHeuresSupplementaires="ngModel">
+    <mat-error *ngIf="tauxHeuresSupplementaires.invalid && (tauxHeuresSupplementaires.dirty || tauxHeuresSupplementaires.touched)">
+      <span *ngIf="tauxHeuresSupplementaires.errors?.['required']">Overtime Rate is required</span>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Primes Amount</mat-label>
+    <input matInput [(ngModel)]="data.montantPrimes" name="montantPrimes" required #montantPrimes="ngModel">
+    <mat-error *ngIf="montantPrimes.invalid && (montantPrimes.dirty || montantPrimes.touched)">
+      <span *ngIf="montantPrimes.errors?.['required']">Primes Amount is required</span>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Deductions Amount</mat-label>
+    <input matInput [(ngModel)]="data.montantDeductions" name="montantDeductions" required #montantDeductions="ngModel">
+    <mat-error *ngIf="montantDeductions.invalid && (montantDeductions.dirty || montantDeductions.touched)">
+      <span *ngIf="montantDeductions.errors?.['required']">Deductions Amount is required</span>
+    </mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>     
+  <button mat-raised-button color="primary" (click)="updateEmployee()">Update</button>
+</div>

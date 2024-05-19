@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Add Job Offer</h1>
+<form (ngSubmit)="addJobOffer()">
+  <div mat-dialog-content>
+    <!-- Title -->
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="newJobOffer.title" name="title" required placeholder="Title">
+    </mat-form-field>
+    <!-- Description -->
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="newJobOffer.description" name="description" required placeholder="Description"></textarea>
+    </mat-form-field>
+    <!-- Salary -->
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Salary</mat-label>
+      <input matInput [(ngModel)]="newJobOffer.salary" name="salary" type="number" required placeholder="Salary">
+    </mat-form-field>
+    <!-- Location -->
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Location</mat-label>
+      <input matInput [(ngModel)]="newJobOffer.location" name="location" required placeholder="Location">
+    </mat-form-field>
+    <!-- Required Experience Years -->
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Required Experience Years</mat-label>
+      <input matInput [(ngModel)]="newJobOffer.requiredExperienceYears" name="requiredExperienceYears" type="number" required placeholder="Required Experience Years">
+    </mat-form-field>
+    <!-- Project Details -->
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Project Details</mat-label>
+      <textarea matInput [(ngModel)]="newJobOffer.projectDetails" name="projectDetails" required placeholder="Project Details"></textarea>
+    </mat-form-field>
+    <!-- Category -->
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Category</mat-label>
+      <input matInput [(ngModel)]="newJobOffer.category" name="category" required placeholder="Category">
+    </mat-form-field>
+    <!-- Keywords -->
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Keywords</mat-label>
+      <input matInput [(ngModel)]="newJobOffer.keywords" name="keywords" required placeholder="Keywords">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" type="submit">Add</button>
+  </div>
+</form>

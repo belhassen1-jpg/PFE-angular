@@ -1,0 +1,63 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<section class="timeline_area section_padding_130">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 col-lg-6">
+                <!-- Section Heading-->
+                <div class="section_heading text-center">
+                    <h3>All Events here!</h3>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <select class="form-select" [(ngModel)]="searchCriteria" (change)="applyFilter()">
+                <option value="title">Title</option>
+                <option value="partenaire nom">Partenaire</option>
+              </select>
+            </div>
+            <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search...">
+          </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Timeline Area-->
+                <div class="apland-timeline-area">
+                    <!-- Single Timeline Content-->
+                    <div *ngFor="let event of pagedEvents" class="single-timeline-area">
+                        <div class="timeline-date wow fadeInLeft" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInLeft;">
+                            <p>{{ event.dateHeure | date: 'MMM dd, yyyy, HH:mm' }}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="single-timeline-content d-flex wow fadeInLeft" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;">
+                                    <div class="timeline-icon"><i class="fa fa-address-card" aria-hidden="true"></i></div>
+                                    <div class="timeline-text">
+                                        <a href="javascript:void(0)" (click)="participateInEvent(event.id)">
+                                            <h6>{{ event.titre }} at {{ event.lieu }}</h6>
+                                            <p>{{ event.description }}</p>
+                                        </a>
+                                    </div>      
+                                    <button mat-icon-button color="primary" (click)="ViewEventEmployees(event.id)">
+                                        <mat-icon>info</mat-icon> </button>
+                                    <button mat-icon-button color="warn" (click)="deleteEventEmployee(event.id)">
+                                        <mat-icon>delete</mat-icon> </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination -->
+        <mat-paginator [pageSize]="pageSize"
+                       [pageIndex]="pageIndex"
+                       [length]="events.length"
+                       (page)="onPageChange($event)">
+        </mat-paginator>
+    </div>
+</section>
+<div> 
+    <button type="button" mat-flat-button color="primary" (click)="addEvent()">Add Event</button>
+  </div>

@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Add Event</h1>
+<form (ngSubmit)="addEvent()">
+    <div mat-dialog-content>
+        <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choose a date"
+            [(ngModel)]="eventData.dateHeure" name="dateHeure">
+            <ngx-mat-datepicker-toggle matSuffix [for]="pickerCustomIcon">
+              <!-- <mat-icon ngxMatDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+            </ngx-mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #pickerCustomIcon>
+            </ngx-mat-datetime-picker>
+            </mat-form-field>
+      <br>
+    <mat-form-field>
+      <mat-label>Titre</mat-label>
+      <input matInput [(ngModel)]="eventData.titre" name="titre" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="eventData.description" name="description" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Lieu</mat-label>
+        <input matInput [(ngModel)]="eventData.lieu" name="lieu" required>
+      </mat-form-field>
+      <br>
+    <mat-form-field>
+        <mat-label>Partenaire</mat-label>
+        <mat-select [(ngModel)]="eventData.partenaireId" name="partenaireId" required>
+          <mat-option *ngFor="let partenaire of partenaires" [value]="partenaire.id">
+            {{ partenaire.nom }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+  <br>
+    </div>
+    <div mat-dialog-actions [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Add</button>
+      </div>
+  </form>
+  

@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Update Department</h1>
+<div mat-dialog-content>
+  <!-- Department Details -->
+  <!-- Add your department details form fields here -->
+
+  <!-- Employee Selection -->
+  <mat-form-field>
+    <mat-label>Select Employee</mat-label>
+    <mat-select [(value)]="selectedEmployee">
+      <mat-option *ngFor="let employee of employees" [value]="employee.empId">
+        {{ employee.firstName }} {{ employee.lastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button color="warn" mat-dialog-close>Cancel</button>
+  <button mat-button color="primary" (click)="assignEmployee()">Assign Employee</button>
+</div>

@@ -1,0 +1,48 @@
+<!-- Dashboard Layout -->
+<div class="dashboard-container">
+  <!-- Charts Section -->
+  <div class="charts-section">
+    <!-- Participation Overview Chart -->
+    <mat-card class="chart-card">
+      <mat-card-title>Aperçu de la participation</mat-card-title>
+      <mat-card-content>
+        <apx-chart *ngIf="salesOverviewChart"
+                   [series]="salesOverviewChart.series"
+                   [chart]="salesOverviewChart.chart"
+                   [legend]="salesOverviewChart.legend"
+                   [xaxis]="salesOverviewChart.xaxis"
+                   [yaxis]="salesOverviewChart.yaxis"
+                   [grid]="salesOverviewChart.grid"
+                   [stroke]="salesOverviewChart.stroke"
+                   [tooltip]="salesOverviewChart.tooltip"
+                   [plotOptions]="salesOverviewChart.plotOptions">
+        </apx-chart>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Vertical space between charts -->
+    <div class="chart-separator"></div>
+
+    <!-- Project Selection Dropdown -->
+    <mat-form-field appearance="fill" class="project-selector">
+      <mat-label>Sélectionnez un projet</mat-label>
+      <mat-select [(value)]="selectedProject" (selectionChange)="onProjectChange()">
+        <mat-option *ngFor="let project of projects" [value]="project.nomProjet">
+          {{ project.nomProjet }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Employee Hours Ranking Chart -->
+    <mat-card class="chart-card">
+      <mat-card-title>Classement des employés par nombre d'heures Travaillées</mat-card-title>
+      <mat-card-content>
+        <apx-chart *ngIf="employeeRankingChart"
+                   [series]="employeeRankingChart.series"
+                   [chart]="employeeRankingChart.chart"
+                   [xaxis]="employeeRankingChart.xaxis">
+        </apx-chart>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

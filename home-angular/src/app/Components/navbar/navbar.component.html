@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <!-- Removed the extra spaces from the image's margin-left style -->
+    <img src="../../../assets/sascodehome-removebg-preview.png" alt="" style="margin-left: 10px;">
+    <!-- Removed the extra spaces before SaScode and adjusted the margin-right -->
+    <a class="navbar-brand" href="/home" style="font-weight: bold; font-size: 29px; margin-right: 150px;">SaScode</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/home">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/document">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/jobs">Job offers <i class="fa-solid fa-star" style="vertical-align: top; color: #f09f33;"></i></a>
+        </li>
+      </ul>
+
+      <form class="d-flex">
+        <div style="margin-left: 20px;"></div>
+      </form>
+      <div class="dropdown">
+        <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          <i class="fa-solid fa-user ">  User</i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a *ngIf="!isAuthenticated()" class="dropdown-item" href="/login">Login</a></li>
+          <li><a *ngIf="!isAuthenticated()" class="dropdown-item" href="http://localhost:4200/register">Sign Up</a></li>
+          <li><a *ngIf="isAuthenticated()" class="dropdown-item" href="/profile">Profile</a></li>
+          <li><a *ngIf="isAuthenticated()" class="dropdown-item" href="/jobapplications">My Applications</a></li>
+          <li><a *ngIf="isAuthenticated()" class="dropdown-item" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+      <div style="margin-left: 30px;"></div>
+    </div>
+  </div>
+</nav>

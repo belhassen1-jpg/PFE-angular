@@ -1,0 +1,49 @@
+.employee-details-container {
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    .mat-card {
+      margin-bottom: 20px;
+    }
+  
+    .detail-label {
+      font-weight: bold;
+    }
+  
+    .actions-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button {
+        margin-right: 10px;
+      }
+    }
+    
+    mat-card-content p {
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+  
+    // You might want to adjust the primary and warn colors to better suit your design
+    .mat-flat-button {
+      margin: 5px;
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+      }
+    }
+  
+    // Optional: Add transitions for interactive elements
+    button, .mat-menu-item {
+      transition: all 0.3s ease;
+    }
+  
+    .mat-menu-item {
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+  
