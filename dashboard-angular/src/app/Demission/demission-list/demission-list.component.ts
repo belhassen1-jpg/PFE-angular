@@ -9,7 +9,7 @@ import { MatSort } from '@angular/material/sort';
 @Component({
   selector: 'app-demission-list',
   templateUrl: './demission-list.component.html',
-  styleUrls: ['./demission-list.component.scss']
+  styleUrls: ['./demission-list.component.css']
 })
 export class DemissionListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'title', 'motif', 'status', 'dateDemande', 'actions'];
