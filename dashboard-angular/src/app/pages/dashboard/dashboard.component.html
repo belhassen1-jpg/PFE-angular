@@ -1,27 +1,44 @@
-<!-- Dashboard Layout -->
+<div class="dashboard-header">
+  <h1 class="animated-title">Tableau de Bord SaScode</h1>
+</div>
+<br>
+<br>
 <div class="dashboard-container">
-  <!-- Charts Section -->
   <div class="charts-section">
-    <!-- Participation Overview Chart -->
-    <mat-card class="chart-card">
-      <mat-card-title>Aperçu de la participation</mat-card-title>
-      <mat-card-content>
-        <apx-chart *ngIf="salesOverviewChart"
-                   [series]="salesOverviewChart.series"
-                   [chart]="salesOverviewChart.chart"
-                   [legend]="salesOverviewChart.legend"
-                   [xaxis]="salesOverviewChart.xaxis"
-                   [yaxis]="salesOverviewChart.yaxis"
-                   [grid]="salesOverviewChart.grid"
-                   [stroke]="salesOverviewChart.stroke"
-                   [tooltip]="salesOverviewChart.tooltip"
-                   [plotOptions]="salesOverviewChart.plotOptions">
-        </apx-chart>
-      </mat-card-content>
-    </mat-card>
+    <!-- Participation Overview and Partner Ranking Charts Side by Side -->
+    <div class="charts-row">
+      <!-- Participation Overview Chart -->
+      <mat-card class="chart-card">
+        <mat-card-content>
+          <apx-chart *ngIf="salesOverviewChart?.series?.length"
+                     [series]="salesOverviewChart.series"
+                     [chart]="salesOverviewChart.chart"
+                     [legend]="salesOverviewChart.legend"
+                     [xaxis]="salesOverviewChart.xaxis"
+                     [yaxis]="salesOverviewChart.yaxis"
+                     [grid]="salesOverviewChart.grid"
+                     [stroke]="salesOverviewChart.stroke"
+                     [tooltip]="salesOverviewChart.tooltip"
+                     [plotOptions]="salesOverviewChart.plotOptions">
+          </apx-chart>
+        </mat-card-content>
+        <mat-card-title class="chart-title">Aperçu de la participation</mat-card-title>
+      </mat-card>
 
-    <!-- Vertical space between charts -->
-    <div class="chart-separator"></div>
+      <!-- Partner Participation Ranking Chart -->
+      <mat-card class="chart-card">
+        <mat-card-content>
+          <apx-chart *ngIf="partnerRankingChart?.series?.length"
+                     [series]="partnerRankingChart.series"
+                     [chart]="partnerRankingChart.chart"
+                     [xaxis]="partnerRankingChart.xaxis"
+                     [title]="partnerRankingChart.title">
+          </apx-chart>
+          <div *ngIf="!partnerRankingChart?.series?.length">No data to display</div>
+        </mat-card-content>
+        <mat-card-title class="chart-title">Classement des Partenaires par Participation</mat-card-title>
+      </mat-card>
+    </div>
 
     <!-- Project Selection Dropdown -->
     <mat-form-field appearance="fill" class="project-selector">
@@ -33,16 +50,36 @@
       </mat-select>
     </mat-form-field>
 
-    <!-- Employee Hours Ranking Chart -->
-    <mat-card class="chart-card">
-      <mat-card-title>Classement des employés par nombre d'heures Travaillées</mat-card-title>
-      <mat-card-content>
-        <apx-chart *ngIf="employeeRankingChart"
-                   [series]="employeeRankingChart.series"
-                   [chart]="employeeRankingChart.chart"
-                   [xaxis]="employeeRankingChart.xaxis">
-        </apx-chart>
-      </mat-card-content>
-    </mat-card>
+    <!-- Employee Hours Ranking and Static Chart Side by Side -->
+    <div class="charts-row">
+      <!-- Employee Hours Ranking Chart -->
+      <mat-card class="chart-card">
+        <mat-card-content>
+          <apx-chart *ngIf="employeeRankingChart?.series?.length"
+                     [series]="employeeRankingChart.series"
+                     [chart]="employeeRankingChart.chart"
+                     [xaxis]="employeeRankingChart.xaxis">
+          </apx-chart>
+        </mat-card-content>
+        <mat-card-title class="chart-title">Classement des employés par nombre d'heures travaillées</mat-card-title>
+      </mat-card>
+
+      <!-- Static Chart -->
+      <mat-card class="chart-card">
+        <mat-card-content>
+          <apx-chart [series]="staticChartData.series"
+                     [chart]="staticChartData.chart"
+                     [xaxis]="staticChartData.xaxis"
+                     [yaxis]="staticChartData.yaxis"
+                     [legend]="staticChartData.legend">
+          </apx-chart>
+        </mat-card-content>
+        <mat-card-title class="chart-title">Nombre des Employés</mat-card-title>
+      </mat-card>
+    </div>
   </div>
 </div>
+
+
+
+

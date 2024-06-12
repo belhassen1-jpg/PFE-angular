@@ -6,7 +6,7 @@
             <div class="col-12 col-sm-8 col-lg-6">
                 <!-- Section Heading-->
                 <div class="section_heading text-center">
-                    <h3>All Conventions here!</h3>
+                    <h3>Toutes les conventions ici !</h3>
                     <div class="line"></div>
                 </div>
             </div>
@@ -14,11 +14,11 @@
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               <select class="form-select" [(ngModel)]="searchCriteria" (change)="applyFilter()">
-                <option value="nom">Name</option>
+                <option value="nom">Nom</option>
                 <option value="partenaire nom">Partenaire</option>
               </select>
             </div>
-            <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search...">
+            <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Rechercher...">
           </div>
         <div class="row">
             <div class="col-12">
@@ -27,7 +27,7 @@
                     <!-- Single Timeline Content-->
                     <div *ngFor="let convention of pagedConventions" class="single-timeline-area">
                         <div class="timeline-date wow fadeInLeft" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInLeft;">
-                            <p>From {{ convention.dateDebut | date: 'MMM dd, yyyy, HH:mm' }} to {{ convention.dateFin | date: 'MMM dd, yyyy, HH:mm' }}</p>
+                            <p>De {{ convention.dateDebut | date: 'MMM dd, yyyy, HH:mm' }} à {{ convention.dateFin | date: 'MMM dd, yyyy, HH:mm' }}</p>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 col-lg-4">
@@ -58,5 +58,5 @@
     </div>
 </section>
 <div> 
-    <button type="button" mat-flat-button color="primary" (click)="addConvention()">Add Convention</button>
-  </div>
+    <button type="button" mat-flat-button color="primary" (click)="addConvention()">Ajouter une convention</button>
+</div>

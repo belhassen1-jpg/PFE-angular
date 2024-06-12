@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, OnInit, ChangeDetectorRef } from '@angular/core';
 import {
   ApexChart,
   ChartComponent,
@@ -14,7 +14,9 @@ import {
   ApexFill,
   ApexMarkers,
   ApexResponsive,
+  ApexTitleSubtitle,
 } from 'ng-apexcharts';
+import { PartenaireService } from 'src/app/Partenaire/partenaire.service';
 import { PlanningService } from 'src/app/Planning/planning.service';
 import { StatistiqueService } from 'src/app/Statistique/statistique.service';
 
@@ -22,6 +24,13 @@ interface month {
   value: string;
   viewValue: string;
 }
+
+export type PartnerRankingChart = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  title: ApexTitleSubtitle;
+};
 
 export interface salesOverviewChart {
   series: ApexAxisChartSeries;
@@ -134,7 +143,7 @@ interface ChartData {
 
 interface Project {
   id: number;
-  nomProjet: string;  // Adjust properties based on your API response
+  nomProjet: string;  
 }
 
 @Component({
@@ -146,15 +155,84 @@ export class AppDashboardComponent implements OnInit {
   public salesOverviewChart: Partial<salesOverviewChart> | any;
   public employeeRankingChart: Partial<any> | any;
   public projects: Project[] = [];
+  public staticChartData: Partial<any> | any;
   public selectedProject: string;
+  private logoColors = ['#017bff', '#f7358e'];
+  public partnerRankingChart: PartnerRankingChart = {
+    series: [],
+    chart: {
+        type: 'bar',
+        height: 350
+    },
+    xaxis: {
+        categories: []
+    },
+    title: {
+        align: 'center'
+    }
+};
 
-  constructor(private statistiqueService: StatistiqueService,private planningService: PlanningService) {}
+  constructor(private cdr: ChangeDetectorRef,private statistiqueService: StatistiqueService,private planningService: PlanningService,private partenaireService: PartenaireService) {}
 
   ngOnInit(): void {
     this.loadDataForSalesChart();
     this.loadProjects();
+    this.loadPartnerRankings();
+    this.loadStaticChartData();
   }
 
+
+  loadStaticChartData(): void {
+    this.staticChartData = {
+      series: [{
+        name: 'Static Data',
+        data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+      }],
+      chart: {
+        type: 'line',
+        height: 350
+      },
+      xaxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
+      },
+      yaxis: {
+        title: {
+          text: 'Value'
+        }
+      },
+      legend: {
+        show: true
+      }
+    };
+  }
+  
+  loadPartnerRankings(): void {
+    this.partenaireService.getPartenairesRankedByInvolvement().subscribe({
+        next: (data) => {
+            if (data && data.length > 0) {
+                this.partnerRankingChart.series = [{
+                    name: 'Total Participations',
+                    data: data.map(item => item.totalParticipations)
+                }];
+                this.partnerRankingChart.xaxis = {
+                    categories: data.map(item => item.nom)
+                };
+                this.cdr.detectChanges();
+                  // Trigger change detection manually
+            } else {
+                this.partnerRankingChart.series = [];
+                this.partnerRankingChart.xaxis = { categories: [] };
+                this.partnerRankingChart.title.text = 'No Data Available';
+            }
+        },
+        error: (error) => {
+            console.error('Error loading partner rankings:', error);
+        }
+    });
+}
+
+
+  
   loadProjects(): void {
     this.planningService.getAllPlanningsWithDetails().subscribe({
       next: (data) => {
@@ -185,9 +263,7 @@ export class AppDashboardComponent implements OnInit {
           },
           xaxis: {
             categories: data.map(item => item.nom)
-          },
-          // More chart options can be configured here
-        };
+          },   colors: this.logoColors      };
       },
       error: (error) => {
         console.error('Error loading employee rankings:', error);
@@ -211,7 +287,7 @@ export class AppDashboardComponent implements OnInit {
           const eventValues = Object.values(eventIdsAndValues).map((value: unknown) =>
             Number(value)
           );
-          const eventColor = '#5D87FF'; // Color for Events
+          const eventColor = '#5D87FF'; 
           seriesData.push({
             name: 'Events',
             data: eventValues,
@@ -225,7 +301,7 @@ export class AppDashboardComponent implements OnInit {
           const conventionValues = Object.values(conventionIdsAndValues).map((value: unknown) =>
             Number(value)
           );
-          const conventionColor = '#ECF2FF'; // Color for Conventions
+          const conventionColor = '#ECF2FF'; 
           seriesData.push({
             name: 'Conventions',
             data: conventionValues,
@@ -239,7 +315,7 @@ export class AppDashboardComponent implements OnInit {
           const formationValues = Object.values(formationIdsAndValues).map((value: unknown) =>
             Number(value)
           );
-          const formationColor = '#49BEFF'; // Color for Formations
+          const formationColor = '#49BEFF'; 
           seriesData.push({
             name: 'Formations',
             data: formationValues,
@@ -257,14 +333,14 @@ export class AppDashboardComponent implements OnInit {
           legend: {
             show: true,
             labels: {
-              colors: ['#5D87FF', '#ECF2FF', '#49BEFF'], // Match colors with Events, Conventions, and Formations
+              colors: ['#5D87FF', '#ECF2FF', '#49BEFF'], 
               useSeriesColors: false,
             },
           },
           xaxis: {
             categories: Object.keys(data.Events || {}).map(Number), // Use event IDs as x-axis categories
           },
-          // Add other chart properties such as grid, plotOptions, etc.
+          
         };
       },
       (error) => {

@@ -41,6 +41,10 @@ import { UserProfileComponent } from './User/user-profile/user-profile.component
 import { ToastrModule } from 'ngx-toastr';
 import { ResetPasswordComponent } from './User/reset-password/reset-password.component';
 import { ResetPasswordSmsComponent } from './User/reset-password-sms/reset-password-sms.component';
+import { WebSocketService } from './chatt/websocket.service';
+import { ChatComponent } from './chatt/chat.component';
+
+
 
 
 @NgModule({
@@ -57,6 +61,9 @@ import { ResetPasswordSmsComponent } from './User/reset-password-sms/reset-passw
     UserProfileComponent,
     ResetPasswordComponent,
     ResetPasswordSmsComponent,
+    ChatComponent,
+
+ 
   ],
   imports: [
     BrowserModule,
@@ -82,5 +89,7 @@ import { ResetPasswordSmsComponent } from './User/reset-password-sms/reset-passw
   ],
   exports: [TablerIconsModule],
   bootstrap: [AppComponent],
+  providers: [WebSocketService],
+
 })
 export class AppModule {}

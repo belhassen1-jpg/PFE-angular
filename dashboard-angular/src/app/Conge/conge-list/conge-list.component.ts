@@ -31,7 +31,6 @@ export class CongeListComponent implements OnInit {
   }
 
   editStatus(demande: any): void {
-    // Make sure that the userId exists and is a number.
     const dialogRef = this.dialog.open(StatusEditDialogComponent, {
       width: '250px',
       data: { demandeId: demande.id, currentStatus: demande.statut, empId: demande.employe.empId }
@@ -46,7 +45,7 @@ export class CongeListComponent implements OnInit {
   
   deleteDemande(id: number) {
     this.congeService.deleteDemandeConge(id).subscribe(() => {
-      this.loadDemandes(); // Refresh the list after delete
+      this.loadDemandes();
     });
   }
 

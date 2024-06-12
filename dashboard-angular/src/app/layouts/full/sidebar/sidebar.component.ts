@@ -25,16 +25,16 @@ export class SidebarComponent implements OnInit {
   private filterNavItemsByRole(role: string): NavItem[] {
     // Define roleNavItemsMap with an index signature
 const roleNavItemsMap: { [key: string]: string[] } = {
-    Admin: ['Dashboard', 'User', 'Employee', 'Department', 'Chef Department',
-     'Job Offers', 'Job Applications',
-       'Planning', 'Event', 'Event Demande','Convention','Convention Demande', 'Partenaire', 'Conge List','Demission List','Formation'],
+    Admin: ['Tableau de bord', 'Utilisateur', 'Employé', 'Département', 'Chef de département',
+     'Offres emploi', 'Candidatures emploi',
+       'Planning', 'Événement', 'Demande événement','Convention','Demande de convention', 'Partenaire', 'Liste de congés','Liste de démissions','Formation'],
 
-      RH: ['Dashboard', 'User', 'Employee', 'Department', 'Chef Department',
-     'Job Offers', 'Job Applications',
-       'Planning', 'Event', 'Event Demande','Convention','Convention Demande', 'Partenaire', 'Conge List','Demission List','Formation'],
+      RH: ['Tableau de bord', 'Utilisateur', 'Employé', 'Département', 'Chef de département',
+     'Offres emploi', 'Candidatures emploi',
+       'Planning', 'Événement', 'Demande événement','Convention','Demande de convention', 'Partenaire', 'Liste de congés','Liste de démissions','Formation'],
      
-    Employee: ['Dashboard', 'Depenses', 'Objectifs Epargne', 'Analyse Financier', 'Feuille de Temps',
-     'Bulletin Paie', 'Event List','Convention List','Formation List']
+    Employee: ['Tableau de bord', 'Dépenses', 'Objectifs épargne', 'Analyse financière', 'Feuille de Temps',
+     'Bulletin de Paie', 'Liste événements','Liste de conventions','Liste de formation']
 };
 
 // Filter navItems based on the user's role

@@ -6,7 +6,7 @@
             <div class="col-12 col-sm-8 col-lg-6">
                 <!-- Section Heading-->
                 <div class="section_heading text-center">
-                    <h2>All Conventions here!</h2>
+                    <h2>Toutes les conventions ici !</h2>
                     <div class="line"></div>
                 </div>
             </div>
@@ -14,11 +14,11 @@
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               <select class="form-select" [(ngModel)]="searchCriteria" (change)="applyFilter()">
-                <option value="nom">Name</option>
-                <option value="partenaire nom">Partner</option>
+                <option value="nom">Nom</option>
+                <option value="partenaire nom">Partenaire</option>
               </select>
             </div>
-            <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search...">
+            <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Rechercher...">
           </div>
         <div class="row">
             <div class="col-12">
@@ -35,10 +35,10 @@
                                     <div class="timeline-icon"><i class="fa fa-handshake-o" aria-hidden="true"></i></div>
                                     <div class="timeline-text">
                                         <a href="javascript:void(0)" (click)="participateInConvention(convention.id)">
-                                            <h6>{{ convention.nom }} hosted by {{ convention.partenaire.nom }}</h6>
+                                            <h6>{{ convention.nom }} organisée par {{ convention.partenaire.nom }}</h6>
                                             <p>{{ convention.objet }}</p>
                                         </a>
-                                    </div>      
+                                    </div>      
                                 </div>
                             </div>
                         </div>

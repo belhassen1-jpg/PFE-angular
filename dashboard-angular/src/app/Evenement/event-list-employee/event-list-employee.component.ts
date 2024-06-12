@@ -54,12 +54,9 @@ export class EventListEmployeeComponent {
 
   applyFilter(): void {
     if (this.searchTerm.trim() === '') {
-      // If search term is empty, show all job applications
-      this.pagedEvents = this.originalEvents.slice(); // Use slice to create a copy
+      this.pagedEvents = this.originalEvents.slice(); 
       return;
     }
-  
-    // Filter events based on searchCriteria and searchTerm
     this.pagedEvents = this.originalEvents.filter((event) => {
       if (this.searchCriteria === 'title') {
         return event.titre.toLowerCase().includes(this.searchTerm.toLowerCase());
@@ -70,9 +67,9 @@ export class EventListEmployeeComponent {
   }
   
   clearSearch(): void {
-    // Clear search term and reset list to show all job applications
+    
     this.searchTerm = '';
-    this.pagedEvents = this.originalEvents.slice(); // Reset to original list
+    this.pagedEvents = this.originalEvents.slice(); 
   }
 
   onPageChange(event: any): void {

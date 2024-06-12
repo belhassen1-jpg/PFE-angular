@@ -1,36 +1,36 @@
-<h1 mat-dialog-title>Add Depense</h1>
+<h1 mat-dialog-title>Ajouter une Dépense</h1>
 <form #depForm="ngForm">
-<div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>categorie</mat-label>
-    <input matInput [(ngModel)]="newDepense.categorie" name="categorie" required #categorie="ngModel">
-    <mat-error *ngIf="categorie.invalid && (categorie.dirty || categorie.touched)">
-      <span *ngIf="categorie.errors?.['required']">categorie is required</span>
-    </mat-error>
-  </mat-form-field>  
-  <mat-form-field>
-    <mat-label>description</mat-label>
-    <input matInput [(ngModel)]="newDepense.description" name="description" required #description="ngModel">
-    <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
-      <span *ngIf="description.errors?.['required']">Description is required</span>
-    </mat-error>
-  </mat-form-field>  
-  <mat-form-field>
-    <mat-label>montant</mat-label>
-    <input matInput type="number" [(ngModel)]="newDepense.montant" name="montant" required #montant="ngModel">
-    <mat-error *ngIf="montant.invalid && (montant.dirty || montant.touched)">
-      <span *ngIf="montant.errors?.['required']">Description is required</span>
-    </mat-error>
-  </mat-form-field>  
-  <mat-form-field>
-    <mat-label>date Depense</mat-label>
-    <input matInput [matDatepicker]="dateDepensePicker" [(ngModel)]="newDepense.dateDepense" name="dateDepense" required>
-    <mat-datepicker-toggle matSuffix [for]="dateDepensePicker"></mat-datepicker-toggle>
-    <mat-datepicker #dateDepensePicker></mat-datepicker>
-  </mat-form-field>  
-</div>
-<div mat-dialog-action [align]="'end'">
-  <button mat-raised-button color="warn" mat-dialog-close>Close</button>     
-  <button mat-raised-button color="primary" (click)="addDep()">Add</button>
-</div>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Catégorie</mat-label>
+      <input matInput [(ngModel)]="newDepense.categorie" name="categorie" required #categorie="ngModel">
+      <mat-error *ngIf="categorie.invalid && (categorie.dirty || categorie.touched)">
+        <span *ngIf="categorie.errors?.['required']">La catégorie est requise</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput [(ngModel)]="newDepense.description" name="description" required #description="ngModel">
+      <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
+        <span *ngIf="description.errors?.['required']">La description est requise</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Montant</mat-label>
+      <input matInput type="number" [(ngModel)]="newDepense.montant" name="montant" required #montant="ngModel">
+      <mat-error *ngIf="montant.invalid && (montant.dirty || montant.touched)">
+        <span *ngIf="montant.errors?.['required']">Le montant est requis</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date de la Dépense</mat-label>
+      <input matInput [matDatepicker]="dateDepensePicker" [(ngModel)]="newDepense.dateDepense" name="dateDepense" required>
+      <mat-datepicker-toggle matSuffix [for]="dateDepensePicker"></mat-datepicker-toggle>
+      <mat-datepicker #dateDepensePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>    
+    <button mat-raised-button color="primary" (click)="addDep()">Ajouter</button>
+  </div>
 </form>

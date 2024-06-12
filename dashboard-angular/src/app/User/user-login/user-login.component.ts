@@ -19,7 +19,7 @@ export class UserLoginComponent {
       (response) => {
         console.log('Authentication successful:', response);
 
-        // Parse the JSON string to extract the username
+     
         const jsonResponse = JSON.parse(response.substring(response.indexOf('{')));
 
       // Extract the username
@@ -36,14 +36,13 @@ export class UserLoginComponent {
 
 
 
-        // Redirect based on user role
+        
       switch (userRole) {
         case 'Guest':
-          // this.router.navigate(['/dashboard']);
+       
           window.location.href = 'http://localhost:5000';
           break;
         case 'User':
-          // this.router.navigate(['/dashboard']);
           window.location.href = 'http://localhost:5000';
           break;
         case 'Admin':
@@ -56,22 +55,19 @@ export class UserLoginComponent {
             this.router.navigate(['/dashboard']);
             break;
         default:
-          // Handle unexpected role
           console.error('Unexpected role:', userRole);
       }
-        // notication
          this.toastr.success('Alert', 'Login Successful!');
       },
       (error) => {
         console.error('Authentication failed:', error);
 
-            // Check if the error message contains 'User is not verified'
             if (error.error.includes('User is not verified')) {
                  this.toastr.error('Alert', 'Please Verify your account');
             } else {
                  this.toastr.error('Alert', 'Verify your data !');
             }
-        // Handle authentication error (e.g., show error message to the user)
+    
       }
     );
   }

@@ -8,7 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./department-add.component.scss']
 })
 export class DepartmentAddComponent {
-  newDep: any = {}; // Object to store the new teacher data
+  newDep: any = {}; 
 
   constructor(
     private dialogRef: MatDialogRef<DepartmentAddComponent>,
@@ -21,7 +21,7 @@ export class DepartmentAddComponent {
         this.dialogRef.close(true);
       },
       (error) => {
-        // Handle error
+      
       }
     );
   }

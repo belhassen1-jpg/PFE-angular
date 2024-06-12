@@ -9,7 +9,7 @@ import { FormationService } from '../formation.service';
   styleUrls: ['./formation-add.component.scss']
 })
 export class FormationAddComponent {
-  formationData: any = {}; // Initialize an empty object for formation data
+  formationData: any = {}; 
   @ViewChild('picker', { static: true }) picker: any;
 
   constructor(
@@ -26,13 +26,13 @@ export class FormationAddComponent {
       (response) => {
         console.log("Formation session added");
         this.toastr.success('Formation session added successfully');
-        this.formationData = {}; // Reset the form
-        this.dialogRef.close(true); // Close the dialog on success
+        this.formationData = {}; 
+        this.dialogRef.close(true); 
       },
       (error) => {
         console.error(error);
         this.toastr.error('Error adding formation session', 'Please verify your details and try again');
-        this.dialogRef.close(false); // Optionally, keep the dialog open if there was an error
+        this.dialogRef.close(false); 
       }
     );
   }

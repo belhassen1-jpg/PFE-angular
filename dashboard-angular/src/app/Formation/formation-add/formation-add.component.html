@@ -1,15 +1,15 @@
-<h1 mat-dialog-title>Add Formation</h1>
+<h1 mat-dialog-title>Ajouter une Formation</h1>
 <form (ngSubmit)="addFormation()">
     <div mat-dialog-content>
         <mat-form-field>
-            <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choose a date and time"
+            <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choisir une date et une heure"
             [(ngModel)]="formationData.dateHeure" name="dateHeure">
             <ngx-mat-datepicker-toggle matSuffix [for]="pickerCustomIcon"></ngx-mat-datepicker-toggle>
             <ngx-mat-datetime-picker #pickerCustomIcon></ngx-mat-datetime-picker>
         </mat-form-field>
         <br>
         <mat-form-field>
-            <mat-label>Intitulé</mat-label>
+            <mat-label>Intitule</mat-label>
             <input matInput [(ngModel)]="formationData.intitule" name="intitule" required>
         </mat-form-field>
         <br>
@@ -25,7 +25,7 @@
         <br>
     </div>
     <div mat-dialog-actions [align]="'end'">
-        <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-        <button mat-raised-button color="primary" type="submit">Add</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+        <button mat-raised-button color="primary" type="submit">Ajouter</button>
     </div>
 </form>

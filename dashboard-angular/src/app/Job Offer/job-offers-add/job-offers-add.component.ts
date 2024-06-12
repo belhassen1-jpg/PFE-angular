@@ -10,7 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class JobOffersAddComponent {
 
-  newJobOffer: any = {}; // Object to store the new job offer data
+  newJobOffer: any = {}; 
 
   constructor(
     private jobOfferService: JobofferService, 
@@ -18,7 +18,6 @@ export class JobOffersAddComponent {
   ) {}
   
   addJobOffer(): void {
-    // Split the keywords string into an array
     this.newJobOffer.keywords = this.newJobOffer.keywords.split(',');
     this.jobOfferService.addJobOffer(this.newJobOffer).subscribe(
       (response) => {

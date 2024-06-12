@@ -1,47 +1,46 @@
-<!-- job-application-form.component.html -->
-<h1 mat-dialog-title>Apply for Job</h1>
+<h1 mat-dialog-title>Postuler pour un Emploi</h1>
 <div mat-dialog-content>
-  <!-- Add form fields for job application -->
+  <!-- Ajouter les champs de formulaire pour la candidature à un emploi -->
   <!-- <input type="hidden" [(ngModel)]="jobApplication.jobOfferId" name="jobOfferId">
   <input type="hidden" [(ngModel)]="jobApplication.userId" name="userId"> -->
 
   <mat-form-field class="mb-3">
-    <mat-label>Applicant Name</mat-label>
+    <mat-label>Nom du Candidat</mat-label>
     <input matInput [(ngModel)]="applicantName" name="applicantName">
   </mat-form-field>
   <br>
   <mat-form-field class="mb-3">
-    <mat-label>Applicant Email</mat-label>
+    <mat-label>Email du Candidat</mat-label>
     <input matInput [(ngModel)]="applicantEmail" name="applicantEmail" type="email">
   </mat-form-field>
   <br>
   <mat-form-field class="mb-3">
-    <mat-label>Applicant Phone</mat-label>
+    <mat-label>Téléphone du Candidat</mat-label>
     <input matInput [(ngModel)]="applicantPhone" name="applicantPhone" type="tel">
   </mat-form-field>
   <br>
   <mat-form-field class="mb-3">
-    <mat-label>Applicant Address</mat-label>
+    <mat-label>Adresse du Candidat</mat-label>
     <input matInput [(ngModel)]="applicantAddress" name="applicantAddress">
   </mat-form-field>
   <br>
   <mat-form-field class="mb-3">
-    <mat-label>Years of Experience</mat-label>
+    <mat-label>Années d'Expérience</mat-label>
     <input matInput [(ngModel)]="yearsOfExperience" name="yearsOfExperience" type="number">
   </mat-form-field>
 
   <div class="mb-3">
-    <label for="resume">Resume:</label>
+    <label for="resume">CV :</label>
     <input class="form-control" type="file" id="resume" (change)="onFileChange($event, 'resume')">
   </div>
   <div class="mb-3">
-    <label for="coverLetter">Cover Letter:</label>
+    <label for="coverLetter">Lettre de Motivation :</label>
     <input class="form-control" type="file" id="coverLetter" (change)="onFileChange($event, 'coverLetter')">
   </div>
 
-  <!-- Add other form fields as needed -->
+  <!-- Ajouter d'autres champs de formulaire si nécessaire -->
 </div>
 <div mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" (click)="submitApplication()">Submit</button>
+  <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+  <button mat-raised-button color="primary" (click)="submitApplication()">Soumettre</button>
 </div>

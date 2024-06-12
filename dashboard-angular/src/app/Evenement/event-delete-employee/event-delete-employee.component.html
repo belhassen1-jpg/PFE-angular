@@ -1,10 +1,10 @@
-<h2 mat-dialog-title>Delete Employee from Event</h2>
+<h2 mat-dialog-title>Supprimer l'employé de l'événement</h2>
 <div mat-dialog-content *ngFor="let event of events">
     <ng-container *ngIf="event.id === data.eventId">
-        <!-- Display event details here -->
+        <!-- Afficher les détails de l'événement ici -->
       
         <mat-form-field>
-            <mat-label>Employee</mat-label>
+            <mat-label>Employé</mat-label>
             <mat-select [(ngModel)]="empId" name="empId" required>
               <ng-container *ngFor="let demande of event.demandeParticipationevenments">
                 <mat-option *ngIf="demande.estValidee" [value]="demande.employe.empId">
@@ -16,6 +16,6 @@
 </ng-container>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="deleteEmployeeFromEvent()">Yes</button>
-  <button mat-button (click)="closeDialog()">No</button>
+  <button mat-button (click)="deleteEmployeeFromEvent()">Oui</button>
+  <button mat-button (click)="closeDialog()">Non</button>
 </div>

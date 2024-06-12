@@ -10,7 +10,7 @@ import { PartenaireService } from 'src/app/Partenaire/partenaire.service';
   styleUrls: ['./convention-add.component.scss']
 })
 export class ConventionAddComponent {
-  conventionData: any = {}; // Initialize an empty object for convention data
+  conventionData: any = {}; 
   partenaires: any[] = [];
   @ViewChild('picker', { static: true }) picker: any;
 
@@ -39,7 +39,7 @@ export class ConventionAddComponent {
     this.conventionService.createConvention(this.conventionData, this.conventionData.partenaireId).subscribe(
       (response) => {
         this.toastr.success('Convention Added Successfully', 'Success');
-        this.conventionData = {}; // Reset the form
+        this.conventionData = {}; 
         this.dialogRef.close(true);
       },
       (error) => {

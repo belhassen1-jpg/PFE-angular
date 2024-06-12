@@ -9,7 +9,7 @@ import { PaieService } from '../paie.service';
   styleUrls: ['./declaration-fiscale-add.component.scss']
 })
 export class DeclarationFiscaleAddComponent {
-  newDeclarationFisc: any = {}; // Object to store the new teacher data
+  newDeclarationFisc: any = {}; 
   empId: number;
 
   constructor( @Inject(MAT_DIALOG_DATA) public data: { empId: number },
@@ -22,19 +22,18 @@ export class DeclarationFiscaleAddComponent {
     if (confirm) {
       this.paieService.genererDeclarationFiscale(this.data.empId).subscribe(
         (response) => {
-          // Handle successful participation
+         
           console.log('Declaration Fiscale Added successfully:', response);
           this.toastr.success('Declaration Fiscale Added successfully.', 'Alert');
           this.dialogRef.close(true);
         },
         (error) => {
-          // Handle error
+          
           console.error('Error Declaration Fiscale adding:', error);
           this.dialogRef.close(true);
         }
       );
     } else {
-      // User cancelled participation
       console.log('Participation cancelled.');
       this.toastr.error('Something went wrong.', 'Error');
 

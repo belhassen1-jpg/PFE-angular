@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-8 col-lg-6">
-                <!-- Section Heading-->
+                <!-- Titre de la section-->
                 <div class="section_heading text-center">
-                    <h3>All Events here!</h3>
+                    <h3>Tous les événements ici !</h3>
                     <div class="line"></div>
                 </div>
             </div>
@@ -14,17 +14,17 @@
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               <select class="form-select" [(ngModel)]="searchCriteria" (change)="applyFilter()">
-                <option value="title">Title</option>
+                <option value="title">Titre</option>
                 <option value="partenaire nom">Partenaire</option>
               </select>
             </div>
-            <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search...">
+            <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Rechercher...">
           </div>
         <div class="row">
             <div class="col-12">
-                <!-- Timeline Area-->
+                <!-- Zone de la Timeline-->
                 <div class="apland-timeline-area">
-                    <!-- Single Timeline Content-->
+                    <!-- Contenu d'une seule étape de la timeline-->
                     <div *ngFor="let event of pagedEvents" class="single-timeline-area">
                         <div class="timeline-date wow fadeInLeft" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInLeft;">
                             <p>{{ event.dateHeure | date: 'MMM dd, yyyy, HH:mm' }}</p>
@@ -35,14 +35,14 @@
                                     <div class="timeline-icon"><i class="fa fa-address-card" aria-hidden="true"></i></div>
                                     <div class="timeline-text">
                                         <a href="javascript:void(0)" (click)="participateInEvent(event.id)">
-                                            <h6>{{ event.titre }} at {{ event.lieu }}</h6>
+                                            <h6>{{ event.titre }} à {{ event.lieu }}</h6>
                                             <p>{{ event.description }}</p>
                                         </a>
                                     </div>      
                                     <button mat-icon-button color="primary" (click)="ViewEventEmployees(event.id)">
                                         <mat-icon>info</mat-icon> </button>
-                                    <button mat-icon-button color="warn" (click)="deleteEventEmployee(event.id)">
-                                        <mat-icon>delete</mat-icon> </button>
+                                        <button mat-icon-button color="warn" (click)="deleteEventEmployee(event.id)">
+                                            <mat-icon>delete</mat-icon> </button>
                                 </div>
                             </div>
                         </div>
@@ -59,5 +59,5 @@
     </div>
 </section>
 <div> 
-    <button type="button" mat-flat-button color="primary" (click)="addEvent()">Add Event</button>
-  </div>
+    <button type="button" mat-flat-button color="primary" (click)="addEvent()">Ajouter un événement</button>
+</div>

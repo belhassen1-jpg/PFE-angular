@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add FeuilleTemps</h1>
+<h1 mat-dialog-title>Ajouter FeuilleTemps</h1>
 <form (ngSubmit)="onSubmit()" #feuilleTempsForm="ngForm">
   <div mat-dialog-content>
     <mat-form-field appearance="fill">
@@ -18,31 +18,26 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>heure Debut</mat-label>
-        <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choose a date"
-        [(ngModel)]="FeuilleTempsData.heureDebut" name="heureDebut">
-        <ngx-mat-datepicker-toggle matSuffix [for]="pickerCustomIcon">
-          <!-- <mat-icon ngxMatDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
-        </ngx-mat-datepicker-toggle>
-        <ngx-mat-datetime-picker #pickerCustomIcon>
-        </ngx-mat-datetime-picker>
-        </mat-form-field>
+      <mat-label>Heure de début</mat-label>
+      <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choisissez une date" [(ngModel)]="FeuilleTempsData.heureDebut" name="heureDebut">
+      <ngx-mat-datepicker-toggle matSuffix [for]="pickerCustomIcon">
+        <!-- <mat-icon ngxMatDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+      </ngx-mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #pickerCustomIcon></ngx-mat-datetime-picker>
+    </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>heure Fin</mat-label>
-              <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choose a date"
-              [(ngModel)]="FeuilleTempsData.heureFin" name="heureFin">
-              <ngx-mat-datepicker-toggle matSuffix [for]="pickerCustomIcon">
-                <!-- <mat-icon ngxMatDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
-              </ngx-mat-datepicker-toggle>
-              <ngx-mat-datetime-picker #pickerCustomIcon>
-              </ngx-mat-datetime-picker>
-              </mat-form-field>
-   
+    <mat-form-field>
+      <mat-label>Heure de fin</mat-label>
+      <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choisissez une date" [(ngModel)]="FeuilleTempsData.heureFin" name="heureFin">
+      <ngx-mat-datepicker-toggle matSuffix [for]="pickerCustomIcon">
+        <!-- <mat-icon ngxMatDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+      </ngx-mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #pickerCustomIcon></ngx-mat-datetime-picker>
+    </mat-form-field>
   </div>
   <div mat-dialog-action [align]="'end'">
-    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>  
-    <button mat-raised-button color="primary" type="submit">Add FeuilleTemps</button>  
+    <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>  
+    <button mat-raised-button color="primary" type="submit">Ajouter FeuilleTemps</button>  
   </div>
   <br>
 </form>

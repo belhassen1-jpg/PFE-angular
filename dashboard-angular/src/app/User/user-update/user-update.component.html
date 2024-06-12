@@ -1,95 +1,95 @@
-<h1 mat-dialog-title>Update User</h1>
+<h1 mat-dialog-title>Mettre à jour l'utilisateur</h1>
 <div mat-dialog-content>
-        <mat-form-field>
-          <mat-label>username</mat-label>
-          <input matInput [(ngModel)]="data.username" name="username" required #username="ngModel">
-          <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">
-            <span *ngIf="username.errors?.['pattern']">Username is required</span>
-          </mat-error>
-        </mat-form-field>  
-        
-        <mat-form-field>
-          <mat-label>Password</mat-label>
-          <input matInput [(ngModel)]="data.password" type="password" name="password" required #password="ngModel">
-          <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
-            <span *ngIf="password.errors?.['pattern']">Password is required</span>
-          </mat-error>
-        </mat-form-field>
-        
-        <mat-form-field>
-          <mat-label>first name</mat-label>
-          <input matInput [(ngModel)]="data.firstName" name="firstName" required #firstName="ngModel">
-          <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
-            <span *ngIf="firstName.errors?.['pattern']">First Name is required</span>
-          </mat-error>
-        </mat-form-field>  
-        
-        <mat-form-field>
-          <mat-label>lastName</mat-label>
-          <input matInput [(ngModel)]="data.lastName" name="lastName" required #lastName="ngModel">
-          <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-            <span *ngIf="lastName.errors?.['pattern']">Last Name is required</span>
-          </mat-error>
-        </mat-form-field>
-        
-        <mat-form-field>
-          <mat-label>Age</mat-label>
-          <input matInput [(ngModel)]="data.age" name="age" required min="18" #age="ngModel">
-          <mat-error *ngIf="age.invalid && (age.dirty || age.touched)">
-            <span *ngIf="age.errors?.['pattern']">Age is required</span>
-            <span *ngIf="age.errors?.['min']">Age must be 18 or above</span>
-          </mat-error>
-        </mat-form-field>
-        
-        <br>
-        
-        <mat-form-field>
-          <mat-label>email</mat-label>
-          <input matInput [(ngModel)]="data.email" type="email" name="email" required email #email="ngModel">
-          <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
-            <span *ngIf="email.errors?.['pattern']">Email is required</span>
-            <span *ngIf="email.errors?.['email']">Enter a valid email address</span>
-          </mat-error>
-        </mat-form-field>
-        
-        <br>
-        
-        <mat-form-field>
-          <mat-label>cin</mat-label>
-          <input matInput [(ngModel)]="data.cin" type="number" name="cin" required pattern="[0-9]{8}" #cin="ngModel">
-          <mat-error *ngIf="cin.invalid && (cin.dirty || cin.touched)">
-            <span *ngIf="cin.errors?.['pattern']">CIN is required</span>
-            <span *ngIf="cin.errors?.['pattern']">CIN must be 8 numbers</span>
-          </mat-error>
-        </mat-form-field>
-        
-        <br>
-        
-        <mat-form-field>
-          <mat-label>Phone</mat-label>
-          <input matInput [(ngModel)]="data.phone" type="number" name="phone" required pattern="[0-9]{8}" #phone="ngModel">
-          <mat-error *ngIf="phone.invalid && (phone.dirty || phone.touched)">
-            <span *ngIf="phone.errors?.['pattern']">Phone number is required</span>
-            <span *ngIf="phone.errors?.['pattern']">Phone number must be 8 numbers</span>
-          </mat-error>
-        </mat-form-field>
-        
-        <br>
-        
-        <mat-form-field>
-          <mat-label>Role</mat-label>
-          <mat-select [(ngModel)]="data.userJob" name="userJob" required #userJob="ngModel">
-            <mat-option value="User">User</mat-option>
-            <mat-option value="Admin">Admin</mat-option>
+    <mat-form-field>
+        <mat-label>Nom d'utilisateur</mat-label>
+        <input matInput [(ngModel)]="data.username" name="username" required #username="ngModel">
+        <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">
+            <span *ngIf="username.errors?.['pattern']">Le nom d'utilisateur est requis</span>
+        </mat-error>
+    </mat-form-field>  
+
+    <mat-form-field>
+        <mat-label>Mot de passe</mat-label>
+        <input matInput [(ngModel)]="data.password" type="password" name="password" required #password="ngModel">
+        <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+            <span *ngIf="password.errors?.['pattern']">Le mot de passe est requis</span>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Prénom</mat-label>
+        <input matInput [(ngModel)]="data.firstName" name="firstName" required #firstName="ngModel">
+        <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+            <span *ngIf="firstName.errors?.['pattern']">Le prénom est requis</span>
+        </mat-error>
+    </mat-form-field>  
+
+    <mat-form-field>
+        <mat-label>Nom de famille</mat-label>
+        <input matInput [(ngModel)]="data.lastName" name="lastName" required #lastName="ngModel">
+        <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+            <span *ngIf="lastName.errors?.['pattern']">Le nom de famille est requis</span>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Âge</mat-label>
+        <input matInput [(ngModel)]="data.age" name="age" required min="18" #age="ngModel">
+        <mat-error *ngIf="age.invalid && (age.dirty || age.touched)">
+            <span *ngIf="age.errors?.['pattern']">L'âge est requis</span>
+            <span *ngIf="age.errors?.['min']">L'âge doit être de 18 ans ou plus</span>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="data.email" type="email" name="email" required email #email="ngModel">
+        <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+            <span *ngIf="email.errors?.['pattern']">L'email est requis</span>
+            <span *ngIf="email.errors?.['email']">Entrez une adresse email valide</span>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+        <mat-label>CIN</mat-label>
+        <input matInput [(ngModel)]="data.cin" type="number" name="cin" required pattern="[0-9]{8}" #cin="ngModel">
+        <mat-error *ngIf="cin.invalid && (cin.dirty || cin.touched)">
+            <span *ngIf="cin.errors?.['pattern']">Le CIN est requis</span>
+            <span *ngIf="cin.errors?.['pattern']">Le CIN doit comporter 8 chiffres</span>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+        <mat-label>Téléphone</mat-label>
+        <input matInput [(ngModel)]="data.phone" type="number" name="phone" required pattern="[0-9]{8}" #phone="ngModel">
+        <mat-error *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+            <span *ngIf="phone.errors?.['pattern']">Le numéro de téléphone est requis</span>
+            <span *ngIf="phone.errors?.['pattern']">Le numéro de téléphone doit comporter 8 chiffres</span>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+        <mat-label>Rôle</mat-label>
+        <mat-select [(ngModel)]="data.userJob" name="userJob" required #userJob="ngModel">
+            <mat-option value="User">Utilisateur</mat-option>
+            <mat-option value="Admin">Administrateur</mat-option>
             <mat-option value="RH">RH</mat-option>
-            <mat-option value="Employee">Employee</mat-option>
-          </mat-select>
-          <mat-error *ngIf="userJob.invalid && (userJob.dirty || userJob.touched)">
-            <span *ngIf="userJob.errors?.['required']">Role is required</span>
-          </mat-error>
-        </mat-form-field>
+            <mat-option value="Employee">Employé</mat-option>
+        </mat-select>
+        <mat-error *ngIf="userJob.invalid && (userJob.dirty || userJob.touched)">
+            <span *ngIf="userJob.errors?.['required']">Le rôle est requis</span>
+        </mat-error>
+    </mat-form-field>
 </div>
 <div mat-dialog-action [align]="'end'">
-  <button mat-raised-button color="warn" mat-dialog-close>Close</button>  
-  <button mat-raised-button color="primary" (click)="updateUser()">Update</button>
+    <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>  
+    <button mat-raised-button color="primary" (click)="updateUser()">Mettre à jour</button>
 </div>

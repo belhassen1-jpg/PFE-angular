@@ -1,19 +1,22 @@
-<h2 mat-dialog-title>All Participants from Convention</h2>
+<h2 mat-dialog-title>Tous les participants de la convention</h2>
 <div mat-dialog-content *ngFor="let convention of conventions">
-    <ng-container *ngIf="convention.id === data.conventionId">
-      
-        <mat-form-field>
-            <mat-label>Employee</mat-label>
-            <mat-select [(ngModel)]="empId" name="empId" required>
-              <ng-container *ngFor="let demande of convention.demandeParticipationConventions">
-                <mat-option *ngIf="demande.estValidee" [value]="demande.employe.empId">
-                  {{ demande.employe.firstName }} {{ demande.employe.lastName }}
-                </mat-option>
-              </ng-container>
-            </mat-select>
-          </mat-form-field>
-</ng-container>
+  <ng-container *ngIf="convention.id === data.conventionId">
+    <!-- Afficher les détails de la convention ici -->
+    <div class="participants-container">
+      <ng-container *ngFor="let demande of convention.demandeParticipationConventions">
+        <ng-container *ngIf="demande.estValidee">
+          <div class="participant-card">
+            <mat-card>
+              <mat-card-content>
+                <p>{{ demande.employe.firstName }} {{ demande.employe.lastName }}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="closeDialog()">Close</button>
+  <button mat-button (click)="closeDialog()">Fermer</button>
 </div>

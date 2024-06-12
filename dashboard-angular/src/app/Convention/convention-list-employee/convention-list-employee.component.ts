@@ -11,11 +11,11 @@ import { ConventionParticipateComponent } from '../convention-participate/conven
 })
 export class ConventionListEmployeeComponent {
   conventions: any[] = [];
-  pagedConventions: any[] = []; // Array to store conventions for current page
-  pageSize = 3; // Number of conventions per page
-  pageIndex = 0; // Current page index
-  originalConventions: any[] = []; // Store the original list
-  searchCriteria: string = 'nom'; // Based on 'title' in Convention, adapted for conventions
+  pagedConventions: any[] = []; 
+  pageSize = 3; 
+  pageIndex = 0; 
+  originalConventions: any[] = []; 
+  searchCriteria: string = 'nom'; 
   searchTerm: string = '';
 
   constructor(private conventionService: ConventionService, private dialog: MatDialog, private toastr: ToastrService) { }
@@ -28,7 +28,7 @@ export class ConventionListEmployeeComponent {
     this.conventionService.getAllConventions().subscribe(
       (data: any[]) => {
         this.conventions = data;
-        this.originalConventions = data; // Store the original list
+        this.originalConventions = data; 
         this.updatePagedConventions();
         console.log('Conventions with Participants:', this.conventions);
       },
@@ -40,11 +40,9 @@ export class ConventionListEmployeeComponent {
 
   applyFilter(): void {
     if (this.searchTerm.trim() === '') {
-      this.pagedConventions = this.originalConventions.slice(); // Use slice to create a copy
+      this.pagedConventions = this.originalConventions.slice(); 
       return;
     }
-
-    // Filter conventions based on searchCriteria and searchTerm
     this.pagedConventions = this.originalConventions.filter((convention) => {
       if (this.searchCriteria === 'nom') {
         return convention.nom.toLowerCase().includes(this.searchTerm.toLowerCase());
@@ -56,7 +54,7 @@ export class ConventionListEmployeeComponent {
 
   clearSearch(): void {
     this.searchTerm = '';
-    this.pagedConventions = this.originalConventions.slice(); // Reset to original list
+    this.pagedConventions = this.originalConventions.slice(); 
   }
 
   onPageChange(event: any): void {

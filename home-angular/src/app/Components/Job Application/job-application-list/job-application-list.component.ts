@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class JobApplicationListComponent implements OnInit {
   jobApplications: any[] = [];
-originalJobApplications: any[] = []; // Store the original list
+originalJobApplications: any[] = []; 
 searchCriteria: string = 'name';
 searchTerm: string = '';
 
@@ -25,7 +25,7 @@ getJobApplications(): void {
   this.jobApplicationService.getAllJobApplicationsForUser().subscribe(
     (data: any[]) => {
       this.jobApplications = data;
-      this.originalJobApplications = data; // Store the original list
+      this.originalJobApplications = data; 
       console.log('Job Applications:', this.jobApplications);
     },
     (error) => {
@@ -36,12 +36,12 @@ getJobApplications(): void {
 
 applyFilter(): void {
   if (this.searchTerm.trim() === '') {
-    // If search term is empty, show all job applications
-    this.jobApplications = this.originalJobApplications.slice(); // Use slice to create a copy
+   
+    this.jobApplications = this.originalJobApplications.slice(); 
     return;
   }
 
-  // Filter jobApplications based on searchCriteria and searchTerm
+  
   this.jobApplications = this.originalJobApplications.filter((application) => {
     if (this.searchCriteria === 'name') {
       return application.applicantName.toLowerCase().includes(this.searchTerm.toLowerCase());

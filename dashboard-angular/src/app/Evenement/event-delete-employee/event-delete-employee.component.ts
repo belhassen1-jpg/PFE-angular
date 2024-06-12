@@ -28,7 +28,6 @@ export class EventDeleteEmployeeComponent implements OnInit {
         this.events = response;
       },
       (error) => {
-        // Handle error
       }
     );
   }
@@ -38,11 +37,10 @@ export class EventDeleteEmployeeComponent implements OnInit {
     this.eventService.deleteEmployeeFromEvent(eventId, this.empId).subscribe(
       () => {
         console.log('Employee deleted from event successfully.');
-        this.dialogRef.close(true); // Signal success and close dialog
+        this.dialogRef.close(true); 
       },
       (error) => {
         console.error('Error deleting employee from event:', error);
-        // Optionally, you can handle errors here
       }
     );
   }

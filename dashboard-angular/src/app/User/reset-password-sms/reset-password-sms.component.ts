@@ -21,20 +21,20 @@ export class ResetPasswordSmsComponent {
       this.userservice.sendSms(this.phoneNumberM).subscribe(
         (response) => {
           console.log('SMS sent successfully:', response);
-          // Handle success, if needed
+          
           this.router.navigate(['/resetpass']);
           this.toastr.success('Alert', 'SMS sent successfully');
         },
         (error) => {
           console.error('Failed to send SMS:', error);
           this.toastr.error('Error', 'Failed to send SMS');
-          // Handle error, if needed
+      
         }
       );
     } else {
       console.warn('Phone number is required.');
       this.toastr.error('Error', 'Phone number is required');
-      // Handle validation, if needed
+    
     }
   }
 

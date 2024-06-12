@@ -1,31 +1,25 @@
 <div *ngIf="bullpaie">
-    <mat-card class="card">
-      <mat-card-header class="header">
-        <mat-card-title class="title">Last Bulletin Paie</mat-card-title>
-      </mat-card-header>
-      <mat-card-content class="content">
-        <div class="summary">
-          <p><strong>=> {{ bullpaie.commentaire }} : </strong></p>
-          <p><strong>Nom Entreprise:</strong> {{ bullpaie.nomEntreprise }}</p>
-          <p><strong>Adresse Entreprise:</strong> {{ bullpaie.adresseEntreprise }}</p>
-        </div>
-        <div class="details">
-          <p><strong>Date Paie:</strong> {{ bullpaie.datePaie | date }}</p>
-          <p><strong>Date Emission:</strong> {{ bullpaie.dateEmission | date }}</p>
-          <p><strong>From:</strong> {{ bullpaie.periodeDebut | date }}</p> <p><strong> To:</strong> {{ bullpaie.periodeFin | date }}</p>
-          <p><strong>Heures Travaillees:</strong> {{ bullpaie.heuresTravaillees }} hours</p>
-          <p><strong>taux Horaire:</strong> {{ bullpaie.tauxHoraire | currency:'EUR':'symbol':'1.2-2' }}</p>
-          <p><strong>Salaire Brut:</strong> {{ bullpaie.salaireBrut | currency:'EUR':'symbol':'1.2-2' }}</p>
-          <p><strong>Salaire Net:</strong> {{ bullpaie.salaireNet | currency:'EUR':'symbol':'1.2-2' }}</p>
-          <p><strong>Cotisations Sociales:</strong> {{ bullpaie.cotisationsSociales | currency:'EUR':'symbol':'1.2-2' }}</p>
-          <p><strong>Impot Sur Revenu:</strong> {{ bullpaie.impotSurRevenu | currency:'EUR':'symbol':'1.2-2' }}</p>
-        </div>
-      </mat-card-content>
-    </mat-card>
-    </div>
-
-    <!-- Add Item Button -->
-  <br>
-  <div>
-    <button mat-raised-button color="primary" (click)="addBullPaie()">Add Bull Paie</button>
-  </div>
+  <mat-card class="card">
+    <mat-card-header class="header">
+      <mat-card-title class="title">Dernier Bulletin de Paie</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <div class="summary">
+        <p><strong>=> {{ bullpaie.commentaire }} : </strong></p>
+        <p><strong>Nom de l'Entreprise :</strong> {{ bullpaie.nomEntreprise }}</p>
+        <p><strong>Adresse de l'Entreprise :</strong> {{ bullpaie.adresseEntreprise }}</p>
+      </div>
+      <div class="details">
+        <p><strong>Date de Paie :</strong> {{ bullpaie.datePaie | date }}</p>
+        <p><strong>Date d'Émission :</strong> {{ bullpaie.dateEmission | date }}</p>
+        <p><strong>De :</strong> {{ bullpaie.periodeDebut | date }}</p> <p><strong>À :</strong> {{ bullpaie.periodeFin | date }}</p>
+        <p><strong>Heures Travailées :</strong> {{ bullpaie.heuresTravaillees }} heures</p>
+        <p><strong>Taux Horaire :</strong> {{ bullpaie.tauxHoraire | currency:'EUR':'symbol':'1.2-2' }}</p>
+        <p><strong>Salaire Brut :</strong> {{ bullpaie.salaireBrut | currency:'EUR':'symbol':'1.2-2' }}</p>
+        <p><strong>Salaire Net :</strong> {{ bullpaie.salaireNet | currency:'EUR':'symbol':'1.2-2' }}</p>
+        <p><strong>Cotisations Sociales :</strong> {{ bullpaie.cotisationsSociales | currency:'EUR':'symbol':'1.2-2' }}</p>
+        <p><strong>Impôt sur le Revenu :</strong> {{ bullpaie.impotSurRevenu | currency:'EUR':'symbol':'1.2-2' }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

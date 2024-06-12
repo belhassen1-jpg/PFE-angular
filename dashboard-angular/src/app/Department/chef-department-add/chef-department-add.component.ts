@@ -13,7 +13,6 @@ export class ChefDepartmentAddComponent implements OnInit {
   employeId: number | null = null;
   departementId: number | null = null;
   specialisation: string | null = null;
-
   departments: any[] = [];
   employees: any[] = [];
 
@@ -31,7 +30,6 @@ export class ChefDepartmentAddComponent implements OnInit {
         this.departments = response;
       },
       (error) => {
-        // Handle error
       }
     );
   }
@@ -41,7 +39,6 @@ export class ChefDepartmentAddComponent implements OnInit {
         this.employees = response;
       },
       (error) => {
-        // Handle error
       }
     );
   }
@@ -52,15 +49,14 @@ export class ChefDepartmentAddComponent implements OnInit {
       this.toastr.error('Please fill in all fields');
       return;
     }
-
     const chefDepartementDetails = { specialisation: this.specialisation };
 
     this.departmentService.assignChefToDepartment(this.employeId, this.departementId, chefDepartementDetails)
       .subscribe(() => {
         this.toastr.success('Chef assigned to department successfully');
         this.dialogRef.close(true);
-        // Reset form fields
-        this.employeId = null;
+        
+        this.employeId = null; // pour l'initialisation 
         this.departementId = null;
         this.specialisation = null;
       }, error => {

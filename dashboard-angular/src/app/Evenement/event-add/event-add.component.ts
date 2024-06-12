@@ -10,7 +10,7 @@ import { PartenaireService } from 'src/app/Partenaire/partenaire.service';
   styleUrls: ['./event-add.component.scss']
 })
 export class EventAddComponent {
-  eventData: any = {}; // Initialize an empty object for event data
+  eventData: any = {}; 
   partenaires: any[] = [];
   @ViewChild('picker', { static: true }) picker: any;
 
@@ -44,7 +44,7 @@ export class EventAddComponent {
         this.dialogRef.close(true);
       },
       (error) => {
-        // Handle error
+       
         console.log(error);
         this.dialogRef.close(true);
         this.toastr.error('Alert', 'Please Verify your details');

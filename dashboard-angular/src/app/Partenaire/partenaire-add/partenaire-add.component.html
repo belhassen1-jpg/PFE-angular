@@ -1,7 +1,7 @@
-<h1 mat-dialog-title>Add Partenaire</h1>
+<h1 mat-dialog-title>Ajouter Partenaire</h1>
 <form (ngSubmit)="addPartenaire()">
   <div mat-dialog-content>
-    <!-- Title -->
+    <!-- Nom -->
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Nom</mat-label>
       <input matInput [(ngModel)]="newPartner.nom" name="nom" required placeholder="Nom">
@@ -18,7 +18,7 @@
     </mat-form-field>
   </div>
   <div mat-dialog-actions [align]="'end'">
-    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-    <button mat-raised-button color="primary" type="submit">Add</button>
+    <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>
+    <button mat-raised-button color="primary" type="submit">Ajouter</button>
   </div>
 </form>

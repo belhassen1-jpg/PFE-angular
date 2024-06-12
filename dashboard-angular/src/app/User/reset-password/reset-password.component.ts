@@ -17,22 +17,19 @@ export class ResetPasswordComponent {
   constructor(private userService: UserService, private toastr: ToastrService) {}
 
   resetPassword(): void {
-    // Validate verification code
     if (!this.verificationCode) {
       this.errorMessage = 'Verification code is required.';
       this.toastr.warning('Error', 'Verification code is required.');
 
     }
-    //  else if (this.newPassword.length < 8) {
-    //   this.errorMessage = 'Password must be at least 8 characters.';
-    // }
+  
      else if (this.newPassword !== this.confirmPassword) {
       this.toastr.warning('Error', 'Passwords do not match');
     } else {
-      // Clear previous error message
+      
       this.errorMessage = '';
 
-      // Call the service to reset password
+ 
       this.userService
         .resetPassword(this.verificationCode, this.newPassword, this.confirmPassword)
         .subscribe(
@@ -40,13 +37,13 @@ export class ResetPasswordComponent {
             console.log('Password reset successfully:', response);
             this.toastr.success('Alert', 'Password reset successfully');
 
-            // Handle success, if needed
+          
           },
           (error) => {
             console.error('Failed to reset password:', error);
             this.toastr.error('Error', 'Verify your code please.');
 
-            // Handle error, if needed
+         
           }
         );
     }

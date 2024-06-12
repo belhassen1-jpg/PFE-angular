@@ -21,23 +21,23 @@ export class EventParticipateComponent {
 
   confirmParticipation(confirm: boolean): void {
     if (confirm) {
-      // User confirmed participation, call API
+     
       const userId = Number(localStorage.getItem('userId'));
       this.eventService.participateInEvent(userId, this.data.eventId).subscribe(
         (response) => {
-          // Handle successful participation
+       
           console.log('Participation confirmed successfully:', response);
           this.toastr.success('You have been added to the waiting list.', 'Alert');
           this.dialogRef.close(true);
         },
         (error) => {
-          // Handle error
+      
           console.error('Error confirming participation:', error);
           this.dialogRef.close(true);
         }
       );
     } else {
-      // User cancelled participation
+  
       console.log('Participation cancelled.');
     }
   }

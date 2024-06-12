@@ -31,7 +31,7 @@ export class FeuilleTempsListComponent {
 
   getAllFeuilleTempss(): void {
     this.planningservice.getFeuilleTempsForUser().subscribe({
-      next: (res: any[]) => { // Explicitly type the response as an array of any
+      next: (res: any[]) => { 
         console.log('FeuilleTempss:', res);
 
         this.dataSource = new MatTableDataSource(res);

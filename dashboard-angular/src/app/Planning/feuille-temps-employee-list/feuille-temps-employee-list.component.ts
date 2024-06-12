@@ -34,7 +34,7 @@ export class FeuilleTempsEmployeeListComponent {
 
   getAllFeuilleTempss(empId: number): void {
     this.planningservice.getFeuilleTempsForEmployee(empId).subscribe({
-      next: (res: any[]) => { // Explicitly type the response as an array of any
+      next: (res: any[]) => { 
         console.log('FeuilleTempss:', res);
 
         this.dataSource = new MatTableDataSource(res);

@@ -27,7 +27,7 @@ export class EventService {
 
   validateDemandeEvent(eventDemandeId: number): Observable<any> {
     const url = `${this.baseUrl}validerDemande/${eventDemandeId}`;
-    return this.http.put(url, null); // Assuming you don't need to send any data in the body
+    return this.http.put(url, null); 
   }
 
   createEvenement(evenementData: any, partenaireId: number): Observable<any> {

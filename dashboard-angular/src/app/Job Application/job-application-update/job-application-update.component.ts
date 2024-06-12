@@ -21,12 +21,11 @@ export class JobApplicationUpdateComponent {
     this.jobApplicationService.updateStatus(this.application.id, this.newStatus)
       .subscribe(
         () => {
-          this.dialogRef.close(true); // Close the dialog on success
+          this.dialogRef.close(true); 
         },
         (error) => {
-          // Handle the error gracefully
+         
           console.error('Error updating status:', error);
-          // Display a notification to the user
           this.toastr.success('Status changed successfully.', 'Alert');
         }
       );

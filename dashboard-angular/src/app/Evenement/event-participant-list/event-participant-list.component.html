@@ -1,20 +1,22 @@
-<h2 mat-dialog-title>All Participants from Event</h2>
+<h2 mat-dialog-title>Tous les participants à l'événement</h2>
 <div mat-dialog-content *ngFor="let event of events">
-    <ng-container *ngIf="event.id === data.eventId">
-        <!-- Display event details here -->
-      
-        <mat-form-field>
-            <mat-label>Employee</mat-label>
-            <mat-select [(ngModel)]="empId" name="empId" required>
-              <ng-container *ngFor="let demande of event.demandeParticipationevenments">
-                <mat-option *ngIf="demande.estValidee" [value]="demande.employe.empId">
-                  {{ demande.employe.firstName }} {{ demande.employe.lastName }}
-                </mat-option>
-              </ng-container>
-            </mat-select>
-          </mat-form-field>
-</ng-container>
+  <ng-container *ngIf="event.id === data.eventId">
+    <!-- Afficher les détails de l'événement ici -->
+    <div class="participants-container">
+      <ng-container *ngFor="let demande of event.demandeParticipationevenments">
+        <ng-container *ngIf="demande.estValidee">
+          <div class="participant-card">
+            <mat-card>
+              <mat-card-content>
+                <p>{{ demande.employe.firstName }} {{ demande.employe.lastName }}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="closeDialog()">Close</button>
+  <button mat-button (click)="closeDialog()">Fermer</button>
 </div>

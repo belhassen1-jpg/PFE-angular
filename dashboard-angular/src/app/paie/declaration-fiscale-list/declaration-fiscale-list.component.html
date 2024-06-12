@@ -1,70 +1,69 @@
 <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-  </mat-form-field>
-  
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-  
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
-            <td mat-cell *matCellDef="let row"> {{ row.id }} </td>
-          </ng-container>
+  <mat-label>Filtre</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="dateDeclaration">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> date Declaration </th>
-        <td mat-cell *matCellDef="let row"> {{ row.dateDeclaration }} </td>
-      </ng-container>
-  
-      <!-- title Column -->
-      <ng-container matColumnDef="totalRevenuImposable">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> total Revenu Imposable </th>
-        <td mat-cell *matCellDef="let row"> {{ row.totalRevenuImposable }} </td>
-      </ng-container>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
 
-      <ng-container matColumnDef="cotisationsSociales">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> cotisations Sociales </th>
-        <td mat-cell *matCellDef="let row"> {{ row.cotisationsSociales }} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="montantImpotDu">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> montant Impot Du </th>
-        <td mat-cell *matCellDef="let row"> {{ row.montantImpotDu }} </td>
-      </ng-container>
+      <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let row"> {{ row.id }} </td>
+        </ng-container>
 
-      <ng-container matColumnDef="montantCotisationsSocialesDu">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> montant Cotisations SocialesDu </th>
-        <td mat-cell *matCellDef="let row"> {{ row.montantCotisationsSocialesDu }} </td>
-      </ng-container>
+    <!-- Colonne Nom -->
+    <ng-container matColumnDef="dateDeclaration">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de Déclaration </th>
+      <td mat-cell *matCellDef="let row"> {{ row.dateDeclaration }} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="referenceDeclaration">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> reference Declaration </th>
-        <td mat-cell *matCellDef="let row"> {{ row.referenceDeclaration }} </td>
-      </ng-container>
+    <!-- Colonne Titre -->
+    <ng-container matColumnDef="totalRevenuImposable">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Revenu Imposable </th>
+      <td mat-cell *matCellDef="let row"> {{ row.totalRevenuImposable }} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="autoriteFiscale">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> autorite Fiscale </th>
-        <td mat-cell *matCellDef="let row"> {{ row.autoriteFiscale }} </td>
-      </ng-container>
+    <ng-container matColumnDef="cotisationsSociales">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Cotisations Sociales </th>
+      <td mat-cell *matCellDef="let row"> {{ row.cotisationsSociales }} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="montantImpotDu">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Montant de l'Impôt Dû </th>
+      <td mat-cell *matCellDef="let row"> {{ row.montantImpotDu }} </td>
+    </ng-container>
 
-      <!-- Define columns to display -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
-      <!-- Row shown when there is no matching data -->
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" [attr.colspan]="displayedColumns.length">No data matching the filter "{{ input.value }}"</td>
-      </tr>
-    </table>
-  
-    <!-- Pagination -->
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of items"></mat-paginator>
-  </div>
-  
-  <!-- Add Item Button -->
-  <br>
-  <div>
-    <button mat-raised-button color="primary" (click)="addDeclarationFiscale()">Add Declaration Fiscale</button>
-  </div>
-  
+    <ng-container matColumnDef="montantCotisationsSocialesDu">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Montant des Cotisations Sociales Dû </th>
+      <td mat-cell *matCellDef="let row"> {{ row.montantCotisationsSocialesDu }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="referenceDeclaration">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Référence de Déclaration </th>
+      <td mat-cell *matCellDef="let row"> {{ row.referenceDeclaration }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="autoriteFiscale">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Autorité Fiscale </th>
+      <td mat-cell *matCellDef="let row"> {{ row.autoriteFiscale }} </td>
+    </ng-container>
+
+    <!-- Définition des colonnes à afficher -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Ligne affichée lorsqu'il n'y a pas de données correspondantes -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" [attr.colspan]="displayedColumns.length">Aucune donnée ne correspond au filtre "{{ input.value }}"</td>
+    </tr>
+  </table>
+
+  <!-- Pagination -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Sélectionner la page d'éléments"></mat-paginator>
+</div>
+
+<!-- Bouton Ajouter un élément -->
+<br>
+<div>
+  <button mat-raised-button color="primary" (click)="addDeclarationFiscale()">Ajouter une Déclaration Fiscale</button>
+</div>

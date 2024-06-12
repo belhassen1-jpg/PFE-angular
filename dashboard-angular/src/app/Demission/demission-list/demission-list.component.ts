@@ -39,24 +39,23 @@ export class DemissionListComponent implements OnInit {
   }
 
   validateDemission(demissionId: number): void {
-    // Call the service method to accept the demission request
     this.demissionService.traiterDemandeDémission(demissionId, true).subscribe({
       next: () => {
         this.toastr.success('Demission request accepted');
-        this.getAllDemissionDemandes(); // Refresh the list
+        this.getAllDemissionDemandes(); 
       },
       error: () => {
         this.toastr.error('Error while accepting demission request');
       }
     });
   }
+  
 
   rejectDemission(demissionId: number): void {
-    // Call the service method to reject the demission request
     this.demissionService.traiterDemandeDémission(demissionId, false).subscribe({
       next: () => {
         this.toastr.success('Demission request rejected');
-        this.getAllDemissionDemandes(); // Refresh the list
+        this.getAllDemissionDemandes(); 
       },
       error: () => {
         this.toastr.error('Error while rejecting demission request');

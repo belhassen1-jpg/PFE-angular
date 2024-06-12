@@ -1,72 +1,71 @@
 <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-  </mat-form-field>
-  
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-  
-      <!-- ID Column -->
+  <mat-label>Filtrer</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Colonne ID -->
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{ row.id }} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let row"> {{ row.id }} </td>
       </ng-container>
-  
-      <!-- Name Column -->
+
+      <!-- Colonne Nom -->
       <ng-container matColumnDef="nom">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> {{ row.nom }} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+          <td mat-cell *matCellDef="let row"> {{ row.nom }} </td>
       </ng-container>
-  
-      <!-- Description Column -->
+
+      <!-- Colonne Description -->
       <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-        <td mat-cell *matCellDef="let row"> {{ row.description }} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let row"> {{ row.description }} </td>
       </ng-container>
-  
-      <!-- Department Chef Column -->
+
+      <!-- Colonne Chef de département -->
       <ng-container matColumnDef="chefDepartement.employe.firstName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Department Chef </th>
-        <td mat-cell *matCellDef="let row">
-          <ng-container *ngIf="row.chefDepartement && row.chefDepartement.employe.firstName">
-            {{ row.chefDepartement.employe.firstName }} {{ row.chefDepartement.employe.lastName }}
-          </ng-container>
-          <ng-container *ngIf="!row.chefDepartement || !row.chefDepartement.employe.firstName">
-            None
-          </ng-container>
-        </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Chef de département </th>
+          <td mat-cell *matCellDef="let row">
+              <ng-container *ngIf="row.chefDepartement && row.chefDepartement.employe.firstName">
+                  {{ row.chefDepartement.employe.firstName }} {{ row.chefDepartement.employe.lastName }}
+              </ng-container>
+              <ng-container *ngIf="!row.chefDepartement || !row.chefDepartement.employe.firstName">
+                  Aucun
+              </ng-container>
+          </td>
       </ng-container>
-  
-      <!-- Actions Column -->
+
+      <!-- Colonne Actions -->
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let row">
-          <button mat-icon-button color="primary" (click)="updateDepartment(row)">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-icon-button color="warn" (click)="deleteDepartment(row.id)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </td>
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let row">
+              <button mat-icon-button color="primary" (click)="updateDepartment(row)">
+                  <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteDepartment(row.id)">
+                  <mat-icon>delete</mat-icon>
+              </button>
+          </td>
       </ng-container>
-  
-      <!-- Define columns to display -->
+
+      <!-- Définir les colonnes à afficher -->
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
-      <!-- Row shown when there is no matching data -->
+
+      <!-- Ligne affichée lorsqu'il n'y a pas de données correspondantes -->
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" [attr.colspan]="displayedColumns.length">No data matching the filter "{{ input.value }}"</td>
+          <td class="mat-cell" [attr.colspan]="displayedColumns.length">Aucune donnée ne correspond au filtre "{{ input.value }}"</td>
       </tr>
-    </table>
-  
-    <!-- Pagination -->
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of items"></mat-paginator>
-  </div>
-  
-  <!-- Add Item Button -->
-  <br>
-  <div>
-    <button mat-raised-button color="primary" (click)="addDepartment()">Add Department</button>
-  </div>
-  
+  </table>
+
+  <!-- Pagination -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Sélectionner la page des éléments"></mat-paginator>
+</div>
+
+<!-- Bouton Ajouter un élément -->
+<br>
+<div>
+  <button mat-raised-button color="primary" (click)="addDepartment()">Ajouter un département</button>
+</div>

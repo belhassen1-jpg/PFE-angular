@@ -1,10 +1,8 @@
-<h1 mat-dialog-title>Add Chef Department</h1>
+<h1 mat-dialog-title>Ajouter Chef de Département</h1>
 <div mat-dialog-content>
-    <!-- <mat-form-field>
-      <input matInput type="number" placeholder="Employe ID" [(ngModel)]="employeId">
-    </mat-form-field> -->
+
     <mat-form-field>
-        <mat-label>Employee</mat-label>
+        <mat-label>Employé</mat-label>
         <mat-select [(ngModel)]="employeId" name="employeId" required>
           <mat-option *ngFor="let employee of employees" [value]="employee.empId">
             {{ employee.firstName }} {{ employee.lastName }}
@@ -12,11 +10,9 @@
         </mat-select>
       </mat-form-field>
   <br>
-    <!-- <mat-form-field>
-      <input matInput type="number" placeholder="Departement ID" [(ngModel)]="departementId">
-    </mat-form-field> -->
+  
     <mat-form-field>
-        <mat-label>Department</mat-label>
+        <mat-label>Département</mat-label>
         <mat-select [(ngModel)]="departementId" name="departementId" required>
           <mat-option *ngFor="let department of departments" [value]="department.id">
             {{ department.nom }}
@@ -25,13 +21,13 @@
       </mat-form-field>
     <br>
     <mat-form-field>
-      <input matInput type="text" placeholder="Specialisation" [(ngModel)]="specialisation">
+      <input matInput type="text" placeholder="Spécialisation" [(ngModel)]="specialisation">
     </mat-form-field>
-    </div>
+</div>
 
-    <div mat-dialog-action [align]="'end'">
-        <button mat-raised-button color="warn" mat-dialog-close>Close</button>    
-        <button mat-raised-button color="primary" (click)="assignChefToDepartment()">Assign Chef</button>    
-    </div>
-    
-  <br>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>    
+    <button mat-raised-button color="primary" (click)="assignChefToDepartment()">Assigner Chef</button>    
+</div>
+
+<br>

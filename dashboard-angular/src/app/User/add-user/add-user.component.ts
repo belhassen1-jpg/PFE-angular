@@ -9,7 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-user.component.scss']
 })
 export class AddUserComponent {
-  newUser: any = {}; // Object to store the new user data
+  newUser: any = {}; 
 
   constructor(
     private userservice: UserService, private toastr: ToastrService, private dialogRef: MatDialogRef<AddUserComponent>,

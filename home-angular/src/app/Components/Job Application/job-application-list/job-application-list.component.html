@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" />
-  <title>Custom Bootstrap 4 card</title>
+  <title>Carte Bootstrap 4 personnalisée</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
@@ -28,11 +28,11 @@
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <select class="form-select" [(ngModel)]="searchCriteria" (change)="applyFilter()">
-        <option value="name">Name</option>
+        <option value="name">Nom</option>
         <option value="email">Email</option>
       </select>
     </div>
-    <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search...">
+    <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Rechercher...">
   </div>
   
   <div class="container">
@@ -47,25 +47,23 @@
           <div>
             <h4 class="card-title">{{ application.jobOffer.title }}</h4>
             <h4 class="card-title">{{ application.applicantName }}</h4>
-            <p class="card-text">Email: {{ application.applicantEmail }}</p>
-            <p class="card-text">Phone: {{ application.applicantPhone }}</p>
-            <p class="card-text">Address: {{ application.applicantAddress }}</p>
-            <p class="card-text">Years of Experience: {{ application.yearsOfExperience }}</p>
+            <p class="card-text">Email : {{ application.applicantEmail }}</p>
+            <p class="card-text">Téléphone : {{ application.applicantPhone }}</p>
+            <p class="card-text">Adresse : {{ application.applicantAddress }}</p>
+            <p class="card-text">Années d'expérience : {{ application.yearsOfExperience }}</p>
           </div>
         </div>
         
-        
-        
         <div class="card-footer" style="background: inherit; border-color: inherit;">
-            <!-- <button class="btn btn-outline-primary" (click)="downloadResume(application.id)">Download Files</button> -->
+            <!-- <button class="btn btn-outline-primary" (click)="downloadResume(application.id)">Télécharger les fichiers</button> -->
             <!-- <button mat-button color="primary" >Menu</button> -->
                    <button mat-fab extended color="primary" [matMenuTriggerFor]="menu">
               <mat-icon>download</mat-icon>
               
             </button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="downloadResume(application.id)">Download Resume</button>
-                <button mat-menu-item (click)="downloadCoverLetter(application.id)">Download CoverLetter</button>
+                <button mat-menu-item (click)="downloadResume(application.id)">Télécharger le CV</button>
+                <button mat-menu-item (click)="downloadCoverLetter(application.id)">Télécharger la lettre de motivation</button>
               </mat-menu>
           <span [ngClass]="{'badge': true, 'status-badge': true, 'badge-warning': application.status === 'EN_ATTENTE', 'badge-success': application.status === 'ACCEPTEE', 'badge-danger': application.status === 'REFUSEE'}">{{ application.status }}</span>
 

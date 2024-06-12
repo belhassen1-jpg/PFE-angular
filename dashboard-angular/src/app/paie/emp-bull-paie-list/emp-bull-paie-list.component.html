@@ -1,66 +1,65 @@
 <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-  </mat-form-field>
-  
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-  
-     
-      <!-- Name Column -->
-      <ng-container matColumnDef="nomEntreprise">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom Entreprise </th>
-        <td mat-cell *matCellDef="let row"> {{ row.nomEntreprise }} </td>
-      </ng-container>
-  
-      <!-- title Column -->
-      <ng-container matColumnDef="datePaie">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Paie </th>
-        <td mat-cell *matCellDef="let row"> {{ row.datePaie }} </td>
-      </ng-container>
+  <mat-label>Filtre</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
 
-      <ng-container matColumnDef="cotisationsSociales">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cotisations Sociales </th>
-        <td mat-cell *matCellDef="let row"> {{ row.cotisationsSociales }} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="heuresTravaillees">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Heures Supplémentaire Travaillees </th>
-        <td mat-cell *matCellDef="let row"> {{ row.heuresTravaillees }} </td>
-      </ng-container>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
 
-      <ng-container matColumnDef="salaireNet">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Salaire Net </th>
-        <td mat-cell *matCellDef="let row"> {{ row.salaireNet }} </td>
-      </ng-container>
+   
+    <!-- Colonne Nom -->
+    <ng-container matColumnDef="nomEntreprise">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom Entreprise </th>
+      <td mat-cell *matCellDef="let row"> {{ row.nomEntreprise }} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="salaireBrut">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Salaire Brut </th>
-        <td mat-cell *matCellDef="let row"> {{ row.salaireBrut }} </td>
-      </ng-container>
+    <!-- Colonne Date de Paie -->
+    <ng-container matColumnDef="datePaie">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de Paie </th>
+      <td mat-cell *matCellDef="let row"> {{ row.datePaie }} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="periodeDebut">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Periode Debut </th>
-        <td mat-cell *matCellDef="let row"> {{ row.periodeDebut }} </td>
-      </ng-container>
+    <ng-container matColumnDef="cotisationsSociales">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Cotisations Sociales </th>
+      <td mat-cell *matCellDef="let row"> {{ row.cotisationsSociales }} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="heuresTravaillees">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Heures Supplémentaires Travailées </th>
+      <td mat-cell *matCellDef="let row"> {{ row.heuresTravaillees }} </td>
+    </ng-container>
 
-      <!-- Define columns to display -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
-      <!-- Row shown when there is no matching data -->
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" [attr.colspan]="displayedColumns.length">No data matching the filter "{{ input.value }}"</td>
-      </tr>
-    </table>
-  
-    <!-- Pagination -->
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of items"></mat-paginator>
-  </div>
-  
-  <!-- Add Item Button -->
-  <br>
-  <div>
-    <button mat-raised-button color="primary" (click)="viewLastBullPaie()">view Last BullPaie</button>
-  </div>
-  
+    <ng-container matColumnDef="salaireNet">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Salaire Net </th>
+      <td mat-cell *matCellDef="let row"> {{ row.salaireNet }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="salaireBrut">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Salaire Brut </th>
+      <td mat-cell *matCellDef="let row"> {{ row.salaireBrut }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="periodeDebut">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Période de Début </th>
+      <td mat-cell *matCellDef="let row"> {{ row.periodeDebut }} </td>
+    </ng-container>
+
+    <!-- Définition des colonnes à afficher -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Ligne affichée lorsqu'il n'y a pas de données correspondantes -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" [attr.colspan]="displayedColumns.length">Aucune donnée ne correspond au filtre "{{ input.value }}"</td>
+    </tr>
+  </table>
+
+  <!-- Pagination -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Sélectionner la page d'éléments"></mat-paginator>
+</div>
+
+<!-- Bouton Ajouter un élément -->
+<br>
+<div>
+  <button mat-raised-button color="primary" (click)="viewLastBullPaie()">Voir le Dernier BullPaie</button>
+</div>

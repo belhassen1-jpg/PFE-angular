@@ -16,11 +16,11 @@ export class NavbarComponent implements OnInit {
   }
 
   isAuthenticated(): boolean {
-    // Implement the logic to check if the user is authenticated
+   
     return this.userService.isAuthenticatedUser();
   }
 logout(): void {
-    // Call the logout method from the authentication service
+   
     this.userService.logout();
     this.router.navigate(['/login']);
     this.toastr.info('Info', 'User Logged out');

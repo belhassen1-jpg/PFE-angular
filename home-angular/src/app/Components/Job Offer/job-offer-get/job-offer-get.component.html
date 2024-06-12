@@ -1,27 +1,38 @@
 <div *ngIf="jobOffer">
-<br>
-<mat-card class="card">
+  <mat-card class="card">
     <mat-card-header class="header">
-      <mat-card-title class="title"><strong>{{ jobOffer.title }}</strong></mat-card-title>
+      <mat-card-title class="title">{{ jobOffer.title }}</mat-card-title>
+      <br>
+      <br>
+      <br>
       <mat-card-subtitle class="subtitle">{{ jobOffer.location }}</mat-card-subtitle>
     </mat-card-header>
-    <br>
     <mat-card-content class="content">
       <div class="summary">
-      <p><strong>-Categorie: </strong>{{ jobOffer.category }}</p>
-      <p><strong>-Keywords:</strong> {{ jobOffer.keywords }}</p>
-      <p><strong>-Required Years:</strong> {{ jobOffer.requiredExperienceYears }}</p>
-      <p><strong>-Salary:</strong> {{ jobOffer.salary }}</p>
-
-    </div>
-    <div class="details">
-      <p><strong>-Description: </strong>{{ jobOffer.description }}</p>
-      <p><strong>-Project Details: </strong>{{ jobOffer.projectDetails }}</p>
-    </div>
+        <div class="summary-item">
+          <mat-icon>category</mat-icon>
+          <strong>Catégorie :</strong> {{ jobOffer.category }}
+        </div>
+        <div class="summary-item">
+          <mat-icon>keyboard</mat-icon>
+          <strong>Mots-clés :</strong> {{ jobOffer.keywords }}
+        </div>
+        <div class="summary-item">
+          <mat-icon>timer</mat-icon>
+          <strong>Années requises :</strong> {{ jobOffer.requiredExperienceYears }}
+        </div>
+        <div class="summary-item">
+          <mat-icon>attach_money</mat-icon>
+          <strong>Salaire :</strong> {{ jobOffer.salary }}
+        </div>
+      </div>
+      <div class="details">
+        <p><strong>Description :</strong> {{ jobOffer.description }}</p>
+        <p><strong>Détails du projet :</strong> {{ jobOffer.projectDetails }}</p>
+      </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="openApplicationDialog()">Apply</button>
+      <button mat-raised-button color="primary" (click)="openApplicationDialog()">Postuler</button>
     </mat-card-actions>
   </mat-card>
 </div>
-  

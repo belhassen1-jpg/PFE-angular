@@ -34,12 +34,6 @@ export class EmployeeService {
   updateEmp(id: number, emp: any): Observable<any> {
     return this.http.put(`${this.baseUrl}api/employes/${id}`, emp);
   }
-
-  // getEmployeeReports(employeId: number): Observable<any> {
-  //   const url = `${this.baseUrl}api/rapports/${employeId}`;
-  //   return this.http.get<any>(url);
-  // }
-
   getEmployeeReport(empId: number): Observable<Blob> {
     const url = `${this.baseUrl}api/rapports/${empId}`;
     return this.http.get(url, { responseType: 'blob' });

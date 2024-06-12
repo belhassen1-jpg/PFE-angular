@@ -33,7 +33,7 @@ export class UserService {
     return this.http.put(`${this.baseUrl}update-User`, user);
   }
 
-  // Update user with id in the URL
+ 
 updateUser2(id: number, user: any): Observable<any> {
   return this.http.put(`${this.baseUrl}update-User/${id}`, user);
 }
@@ -55,7 +55,7 @@ updateUser2(id: number, user: any): Observable<any> {
 
   resetPassword(verificationCode: string, newPassword: string, confirmPassword: string): Observable<any> {
     const url = `${this.baseUrl}reset-password/${verificationCode}?newPassword=${newPassword}&confirmPassword=${confirmPassword}`;
-    return this.http.put(url, null); // Pass null as the body
+    return this.http.put(url, null); 
   }
 
   getProfile(): Observable<any> {
@@ -71,16 +71,16 @@ updateUser2(id: number, user: any): Observable<any> {
   }
 
 
-  // LOGOUT CODE BELOW
+ 
 
   // Check if the user is authenticated based on the existence of a session ID
   isAuthenticatedUser(): boolean {
     return localStorage.getItem('username') !== null;
   }
 
-  // Logout
+  
   logout(): void {
-    // Clear the session ID stored in localStorage
+ 
     localStorage.removeItem('username');
     console.clear();
     console.log("User Logged out");

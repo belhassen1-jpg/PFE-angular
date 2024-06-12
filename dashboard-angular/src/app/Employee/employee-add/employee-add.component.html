@@ -1,32 +1,24 @@
-<h1 mat-dialog-title>Add Employee</h1>
+<h1 mat-dialog-title>Ajouter un employé</h1>
 <form (ngSubmit)="addEmployee()">
     <div mat-dialog-content>
-    <!-- <mat-form-field>
-      <mat-label>First Name</mat-label>
-      <input matInput [(ngModel)]="employeeData.firstName" name="firstName" >
-    </mat-form-field>
-  
-    <mat-form-field>
-      <mat-label>Last Name</mat-label>
-      <input matInput [(ngModel)]="employeeData.lastName" name="lastName" >
-    </mat-form-field> -->
+
   
       <mat-form-field>
-        <mat-label>Start Date</mat-label>
+        <mat-label>Date de début</mat-label>
         <input matInput [matDatepicker]="startDatePicker" [(ngModel)]="employeeData.startDate" name="startDate" required>
         <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #startDatePicker></mat-datepicker>
       </mat-form-field>
       
       <mat-form-field>
-        <mat-label>End Date</mat-label>
+        <mat-label>Date de fin</mat-label>
         <input matInput [matDatepicker]="endDatePicker" [(ngModel)]="employeeData.endDate" name="endDate" required>
         <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #endDatePicker></mat-datepicker>
       </mat-form-field>
   
     <mat-form-field>
-      <mat-label>Title</mat-label>
+      <mat-label>Titre</mat-label>
       <input matInput [(ngModel)]="employeeData.title" name="title" required>
     </mat-form-field>
   
@@ -36,22 +28,22 @@
     </mat-form-field>
   
     <mat-form-field>
-      <mat-label>Taux Heures Supplementaires</mat-label>
+      <mat-label>Taux Heures Supplémentaires</mat-label>
       <input matInput type="number" [(ngModel)]="employeeData.tauxHeuresSupplementaires" name="tauxHeuresSupplementaires" required>
     </mat-form-field>
   
     <mat-form-field>
-      <mat-label>Montant Primes</mat-label>
+      <mat-label>Montant des Primes</mat-label>
       <input matInput type="number" [(ngModel)]="employeeData.montantPrimes" name="montantPrimes" required>
     </mat-form-field>
   
     <mat-form-field>
-      <mat-label>Montant Deductions</mat-label>
+      <mat-label>Montant des Déductions</mat-label>
       <input matInput type="number" [(ngModel)]="employeeData.montantDeductions" name="montantDeductions" required>
     </mat-form-field>
 
     <mat-form-field>
-        <mat-label>Department</mat-label>
+        <mat-label>Département</mat-label>
         <mat-select [(ngModel)]="employeeData.departmentId" name="departmentId" required>
           <mat-option *ngFor="let department of departments" [value]="department.id">
             {{ department.nom }}
@@ -60,7 +52,7 @@
       </mat-form-field>
       
       <mat-form-field>
-        <mat-label>User</mat-label>
+        <mat-label>Utilisateur</mat-label>
         <mat-select [(ngModel)]="employeeData.userId" name="userId" required>
           <mat-option *ngFor="let user of users" [value]="user.idUser">
             {{ user.username }}
@@ -70,8 +62,7 @@
   <br>
     </div>
     <div mat-dialog-actions [align]="'end'">
-        <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-        <button mat-raised-button color="primary" type="submit">Add</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+        <button mat-raised-button color="primary" type="submit">Ajouter</button>
       </div>
   </form>
-  

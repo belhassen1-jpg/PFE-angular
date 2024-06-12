@@ -23,7 +23,6 @@ export class EmployeeUpdateComponent {
   }
 
   updateEmployee(): void {
-    // const { empId, ...employeeData } = this.data; // Remove empId from data object
     this.empService.updateEmp(this.data.empId, this.data).subscribe(
       (response) => {
         this.dialogRef.close(true);

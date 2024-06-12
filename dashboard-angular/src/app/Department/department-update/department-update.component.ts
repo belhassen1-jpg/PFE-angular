@@ -26,7 +26,6 @@ export class DepartmentUpdateComponent implements OnInit {
   }
 
   getEmployees(): void {
-    // Fetch the list of employees from your service
     this.employeeService.getEmpList().subscribe(
       (response) => {
         this.employees = response;
@@ -38,7 +37,7 @@ export class DepartmentUpdateComponent implements OnInit {
   }
 
   assignEmployee(): void {
-    const departmentId = this.data.id; // Assuming 'id' is the department ID
+    const departmentId = this.data.id; 
     if (this.selectedEmployee && departmentId) {
       this.departmentService.assignEmployee(departmentId, this.selectedEmployee).subscribe(
         (response) => {

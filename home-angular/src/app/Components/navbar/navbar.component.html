@@ -10,16 +10,16 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/home">Home</a>
+          <a class="nav-link" aria-current="page" href="/home">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/home">About Us</a>
+          <a class="nav-link" href="/home">À propos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/document">Contact Us</a>
+          <a class="nav-link" href="/document">Nous contacter</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/jobs">Job offers <i class="fa-solid fa-star" style="vertical-align: top; color: #f09f33;"></i></a>
+          <a class="nav-link" href="/jobs">Offres d'emploi <i class="fa-solid fa-star" style="vertical-align: top; color: #f09f33;"></i></a>
         </li>
       </ul>
 
@@ -31,11 +31,11 @@
           <i class="fa-solid fa-user ">  User</i>
         </button>
         <ul class="dropdown-menu">
-          <li><a *ngIf="!isAuthenticated()" class="dropdown-item" href="/login">Login</a></li>
-          <li><a *ngIf="!isAuthenticated()" class="dropdown-item" href="http://localhost:4200/register">Sign Up</a></li>
-          <li><a *ngIf="isAuthenticated()" class="dropdown-item" href="/profile">Profile</a></li>
-          <li><a *ngIf="isAuthenticated()" class="dropdown-item" href="/jobapplications">My Applications</a></li>
-          <li><a *ngIf="isAuthenticated()" class="dropdown-item" (click)="logout()">Logout</a></li>
+          <li><a *ngIf="!isAuthenticated()" class="dropdown-item" href="/login">Connexion</a></li>
+          <li><a *ngIf="!isAuthenticated()" class="dropdown-item" href="http://localhost:4200/register">S'inscrire</a></li>
+          <li><a *ngIf="isAuthenticated()" class="dropdown-item" href="/profile">Profil</a></li>
+          <li><a *ngIf="isAuthenticated()" class="dropdown-item" href="/jobapplications">Mes candidatures</a></li>
+          <li><a *ngIf="isAuthenticated()" class="dropdown-item" (click)="logout()">Déconnexion</a></li>
         </ul>
       </div>
       <div style="margin-left: 30px;"></div>

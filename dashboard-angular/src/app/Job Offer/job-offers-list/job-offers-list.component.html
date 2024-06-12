@@ -3,9 +3,9 @@
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <select class="form-select" [(ngModel)]="searchCriteria" (change)="applyFilter()">
-      <option value="title">Title</option>
-      <option value="category">Category</option>
-      <option value="location">Location</option>
+      <option value="title">Titre</option>
+      <option value="category">Catégorie</option>
+      <option value="location">Lieu</option>
     </select>
   </div>
   <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search...">
@@ -68,21 +68,21 @@
             <div class="solu_description">
               <p>
                 {{ joboffer.keywords }} </p>
-              <button type="button" class="read_more_btn" (click)="showDetails(joboffer)">Read More</button>
+              <button type="button" class="read_more_btn" (click)="showDetails(joboffer)">En savoir plus</button>
               <div class="buttons-wrapper">
                 <!-- <button mat-flat-button color="primary" (click)="updateJobOffer(joboffer)">
                   Edit <i class="fa fa-pen"></i></button>   -->
                   <button mat-fab extended color="accent" (click)="updateJobOffer(joboffer)">
                     <mat-icon>edit</mat-icon>
-                    Edit
+                    Modifier
                   </button>  
                   <button mat-fab extended color="accent" (click)="deleteJobOffer(joboffer.id)">
                     <mat-icon>delete</mat-icon>
-                    Delete
+                    Supprimer
                   </button>  
                   <button mat-fab extended color="accent" (click)="viewApplications(joboffer.id)">
                     <mat-icon>info</mat-icon>
-                    View
+                    Voir
                   </button>
               </div>
             </div>
@@ -96,7 +96,7 @@
  <!-- Add Item Button -->
  <br>
  <div style="display: flex; justify-content: flex-end;">
-    <button mat-raised-button color="primary" (click)="addJobOffeer()">Add Job Offer</button>
+    <button mat-raised-button color="primary" (click)="addJobOffeer()">Ajouter une offre d'emploi</button>
   </div>
   
   

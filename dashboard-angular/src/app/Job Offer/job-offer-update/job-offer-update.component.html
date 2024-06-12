@@ -1,7 +1,7 @@
-<h1 mat-dialog-title>Update Job Offer</h1>
+<h1 mat-dialog-title>Modifier l'offre d'emploi</h1>
 <div mat-dialog-content>
   <mat-form-field>
-    <mat-label>Title</mat-label>
+    <mat-label>Titre</mat-label>
     <input matInput [(ngModel)]="data.title" name="title" required>
   </mat-form-field>
   
@@ -11,36 +11,36 @@
   </mat-form-field>
   
   <mat-form-field>
-    <mat-label>Salary</mat-label>
+    <mat-label>Salaire</mat-label>
     <input matInput [(ngModel)]="data.salary" type="number" name="salary" required>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-label>Location</mat-label>
+    <mat-label>Emplacement</mat-label>
     <input matInput [(ngModel)]="data.location" name="location" required>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-label>Required Experience (Years)</mat-label>
+    <mat-label>Expérience requise (années)</mat-label>
     <input matInput [(ngModel)]="data.requiredExperienceYears" type="number" name="requiredExperienceYears" required>
   </mat-form-field>
   <br>
   <mat-form-field class="example-full-width">
-    <mat-label>Project Details</mat-label>
+    <mat-label>Détails du projet</mat-label>
     <textarea matInput [(ngModel)]="data.projectDetails" name="projectDetails" required></textarea>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-label>Category</mat-label>
+    <mat-label>Catégorie</mat-label>
     <input matInput [(ngModel)]="data.category" name="category" required>
   </mat-form-field>
   <br>
   <mat-form-field class="keywords-full-width">
-    <mat-label>Keywords</mat-label>
+    <mat-label>Mots-clés</mat-label>
     <input matInput [(ngModel)]="data.keywords" name="keywords" required>
   </mat-form-field>
 </div>
 <div mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-  <button mat-raised-button color="primary" (click)="updateJobOffer()">Update</button>
+  <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>
+  <button mat-raised-button color="primary" (click)="updateJobOffer()">Modifier</button>
 </div>

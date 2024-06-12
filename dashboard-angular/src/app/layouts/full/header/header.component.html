@@ -3,11 +3,9 @@
   <button mat-icon-button (click)="toggleMobileNav.emit()" *ngIf="!showToggle">
     <i-tabler name="menu-2" class="icon-20 d-flex"></i-tabler>
   </button>
-  <!-- --------------------------------------------------------------- -->
 
-  <!-- --------------------------------------------------------------- -->
-  <!-- Notification Dropdown -->
-  <!-- --------------------------------------------------------------- -->
+  <!-- Chat Button -->
+  <button mat-button class="chat-button" (click)="openChat()">Chat</button>
 
   <button mat-icon-button aria-label="Notifications">
     <i-tabler
@@ -20,10 +18,7 @@
 
   <span class="flex-1-auto"></span>
 
-  <!-- --------------------------------------------------------------- -->
-  <!-- profile Dropdown -->
-  <!-- --------------------------------------------------------------- -->
-  
+  <!-- Profile Dropdown -->
   <button
     mat-icon-button
     [matMenuTriggerFor]="profilemenu"
@@ -39,31 +34,25 @@
     <button mat-menu-item *ngIf="isAuthenticated()" (click)="navigateToProfile()">
       <mat-icon class="d-flex align-items-center"
         ><i-tabler name="user" class="icon-18 d-flex"></i-tabler></mat-icon
-      >My Profile
+      >Mon Profil
     </button>
-    <!-- <button mat-menu-item>
-      <mat-icon class="d-flex align-items-center"
-        ><i-tabler name="mail" class="icon-18 d-flex"></i-tabler></mat-icon
-      >My Account
-    </button> -->
     <button mat-menu-item>
       <mat-icon class="d-flex align-items-center"
         ><i-tabler
           name="list-check"
           class="icon-18 d-flex"
         ></i-tabler></mat-icon
-      >My Task
+      >Ma tâche
     </button>
-
     <div class="p-x-12 m-t-12">
       <a *ngIf="isAuthenticated()" 
         (click)="logout()"
         mat-stroked-button
         color="primary"
         class="w-100"
-        >Logout</a
+        >Se déconnecter</a
       >
     </div>
-    
   </mat-menu>
 </mat-toolbar>
+<app-chat *ngIf="isChatOpen"></app-chat>

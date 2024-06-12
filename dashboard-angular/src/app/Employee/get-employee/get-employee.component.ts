@@ -13,9 +13,9 @@ import { FormationService } from 'src/app/Formation/formation.service';
   styleUrls: ['./get-employee.component.scss']
 })
 export class GetEmployeeComponent {
-  selectedEmployee: any; // Define a variable to hold the selected employee data
-  numberOfEventsParticipated: number; // nbr of events an employee participated in
-  numberOfHoursWorked: number; // nbr of events an employee participated in
+  selectedEmployee: any; 
+  numberOfEventsParticipated: number; 
+  numberOfHoursWorked: number; 
   totalJoursConges: number;
   NumberOfformationsParticipated: number;
 
@@ -88,28 +88,16 @@ export class GetEmployeeComponent {
     this.eventService.deleteEventsForEmployee(empId).subscribe(
       () => {
         console.log('Events deleted successfully');
-        // Optionally, perform any actions after successful deletion
       },
       (error) => {
         console.error('Error deleting events:', error);
-        // Optionally, handle error scenarios
       }
     );
   }
 
-  // fetchEmployeeReports(): void {
-  //   this.employeeService.getEmployeeReports(this.selectedEmployee.empId).subscribe(
-  //     (data) => {
-  //       this.reports = data;
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching employee reports:', error);
-  //     }
-  //   );
-  // }
+
 
   viewReport(): void {
-    // Assuming you have a method in your employee service to fetch the report
     this.employeeService.getEmployeeReport(this.selectedEmployee.empId).subscribe(
       (response: Blob) => {
         const file = new Blob([response], { type: 'application/pdf' });
@@ -118,7 +106,7 @@ export class GetEmployeeComponent {
       },
       (error) => {
         console.error('Error fetching employee report:', error);
-        // Handle error
+        
       }
     );
   }

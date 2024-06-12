@@ -9,7 +9,7 @@ import { PaieService } from '../paie.service';
   styleUrls: ['./bull-paie-add.component.scss']
 })
 export class BullPaieAddComponent {
-  newBullPaie: any = {}; // Object to store the new teacher data
+  newBullPaie: any = {}; 
   empId: number;
 
   constructor( @Inject(MAT_DIALOG_DATA) public data: { empId: number },
@@ -22,19 +22,19 @@ export class BullPaieAddComponent {
     if (confirm) {
       this.paieService.genererBulletinPaie(this.data.empId).subscribe(
         (response) => {
-          // Handle successful participation
+         
           console.log('Bull Paie Added successfully:', response);
           this.toastr.success('Bulletin Paie Added successfully.', 'Alert');
           this.dialogRef.close(true);
         },
         (error) => {
-          // Handle error
+         
           console.error('Error bull paie adding:', error);
           this.dialogRef.close(true);
         }
       );
     } else {
-      // User cancelled participation
+   
       console.log('Participation cancelled.');
       this.toastr.error('Something went wrong.', 'Error');
     }

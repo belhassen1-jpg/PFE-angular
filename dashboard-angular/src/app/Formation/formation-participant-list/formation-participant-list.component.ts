@@ -10,11 +10,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class FormationParticipantListComponent implements OnInit {
   empId: number;
   sessions: any[] = [];
+  
+  
 
   constructor(
     private formationService: FormationService,
     public dialogRef: MatDialogRef<FormationParticipantListComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { sessionId: number }
+    @Inject(MAT_DIALOG_DATA) public data: { formationId: number }
   ) { }
 
   ngOnInit(): void {

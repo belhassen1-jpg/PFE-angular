@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class JobOffersListComponent implements OnInit {
 
   joboffers: any[] = [];
-  originalJobOffers: any[] = []; // Store the original list
+  originalJobOffers: any[] = []; 
   searchCriteria: string = 'title';
   searchTerm: string = '';
 
@@ -26,9 +26,9 @@ export class JobOffersListComponent implements OnInit {
   getAllJobOffers(): void {
     this.jobofferService.getAllJobOffers().subscribe(
       (data: any) => {
-        this.joboffers = data; // Assuming the API returns an array of job offers
-        this.originalJobOffers = data; // Store the original list
-        console.log('Job Offers:', this.joboffers); // Log the job offers to the console
+        this.joboffers = data; 
+        this.originalJobOffers = data; 
+        console.log('Job Offers:', this.joboffers); 
       },
       (error) => {
         console.error('Error fetching job offers:', error);
@@ -38,12 +38,12 @@ export class JobOffersListComponent implements OnInit {
 
   applyFilter(): void {
     if (this.searchTerm.trim() === '') {
-      // If search term is empty, show all job applications
-      this.joboffers = this.originalJobOffers.slice(); // Use slice to create a copy
+      
+      this.joboffers = this.originalJobOffers.slice(); 
       return;
     }
   
-    // Filter jobApplications based on searchCriteria and searchTerm
+   
     this.joboffers = this.originalJobOffers.filter((application) => {
       if (this.searchCriteria === 'title') {
         return application.title.toLowerCase().includes(this.searchTerm.toLowerCase());
@@ -57,9 +57,9 @@ export class JobOffersListComponent implements OnInit {
   }
   
   clearSearch(): void {
-    // Clear search term and reset list to show all job applications
+    
     this.searchTerm = '';
-    this.joboffers = this.originalJobOffers.slice(); // Reset to original list
+    this.joboffers = this.originalJobOffers.slice(); 
   }
 
   showDetails(jobOffer: any): void {

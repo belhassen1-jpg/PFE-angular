@@ -34,7 +34,7 @@ export class DeclarationFiscaleListComponent {
 
   getAllDeclarationFiscales(empId: number): void {
     this.paieService.obtenirDeclarationsFiscales(empId).subscribe({
-      next: (res: any[]) => { // Explicitly type the response as an array of any
+      next: (res: any[]) => { 
         console.log('DeclarationFiscales:', res);
 
         this.dataSource = new MatTableDataSource(res);

@@ -3,22 +3,31 @@
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #f7f7f7; /* Light gray background */
+  padding: 32px; /* Add more padding */
+  margin: 32px auto; /* Add more margin and center the card */
 }
 
 .header {
   background-color: #42a5f5; /* Blue header background */
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-top-left-radius: 12px; /* Rounded corners for the header */
+  border-top-right-radius: 12px; /* Rounded corners for the header */
 }
 
 .title {
   padding-top: 10px; /* Add space below the title */
   padding-bottom: 20px; /* Add space below the title */
-  font-size: 20px;
+  font-size: 24px; /* Increase font size */
+  font-weight: bold; /* Make the title bold */
 }
 
 .subtitle {
-  font-size: 15px;
-  //padding-bottom: 10px; /* Add space below the title */
+  font-size: 16px; /* Increase font size */
+  padding-bottom: 10px; /* Add space below the subtitle */
 }
 
 .content {
@@ -26,9 +35,35 @@
 }
 
 .summary {
-  margin-bottom: 16px;
+  margin-bottom: 32px; /* Add more space below the summary */
+  display: grid; /* Use grid to align items */
+  grid-template-columns: 1fr 1fr; /* Set grid to two columns */
+  gap: 16px; /* Add gap between items */
+}
+
+.summary-item {
+  border: 1px solid #ddd; /* Add border to items */
+  border-radius: 4px; /* Add border radius to items */
+  padding: 16px; /* Add padding to items */
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Center items vertically */
+  background-color: #ffffff; /* White background for summary items */
+}
+
+.summary-item mat-icon {
+  margin-right: 16px; /* Add space between icon and text */
+}
+
+.summary-text {
+  font-size: 16px; /* Adjust font size for summary text */
 }
 
 .details p {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center; /* Center the button */
+  padding: 16px;
 }

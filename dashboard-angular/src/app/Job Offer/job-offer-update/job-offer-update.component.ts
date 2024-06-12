@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./job-offer-update.component.scss']
 })
 export class JobOfferUpdateComponent implements OnInit {
-  updatedJobOffer: any = {}; // Object to store the updated job offer data
+  updatedJobOffer: any = {}; 
   @Input() data: any;
 
   constructor(
@@ -17,10 +17,6 @@ export class JobOfferUpdateComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private dialogData: any,
     private jobOfferService: JobofferService, private toastr: ToastrService
   ) {
-     // Check if keywords is a string before splitting
-    // if (typeof this.data.keywords === 'string') {
-    //   this.data.keywords = this.data.keywords.split(',');
-    // }
    }
 
    ngOnInit(): void {
@@ -28,18 +24,16 @@ export class JobOfferUpdateComponent implements OnInit {
   }
 
   updateJobOffer(): void {
-    // Call the service method to update the job offer with the updated data
-    // Split the keywords string into an array
-    // this.jobOffer.keywords = this.jobOffer.keywords.split(',');
+  
     this.jobOfferService.updateJobOffer(this.data.id, this.data).subscribe(
       (response) => {
-        // Handle success
+     
         console.log("Job offer updated successfully:", response);
-        this.dialogRef.close(true); // Close the dialog
+        this.dialogRef.close(true); 
         this.toastr.success('Alert', 'Job Offer Updated');
       },
       (error) => {
-        // Handle error
+        
         console.error("Error updating job offer:", error);
         this.toastr.error('Alert', 'Job Offer is not updated');
       }

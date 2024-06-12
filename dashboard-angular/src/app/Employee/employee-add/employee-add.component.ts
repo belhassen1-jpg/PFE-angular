@@ -11,7 +11,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./employee-add.component.scss']
 })
 export class EmployeeAddComponent implements OnInit {
-  employeeData: any = {}; // Initialize an empty object for employee data
+  employeeData: any = {}; // Initialize this object 
   departments: any[] = [];
   users: any[] = [];
 
@@ -30,7 +30,6 @@ export class EmployeeAddComponent implements OnInit {
         this.departments = response;
       },
       (error) => {
-        // Handle error
       }
     );
   }
@@ -40,7 +39,7 @@ export class EmployeeAddComponent implements OnInit {
         this.users = response;
       },
       (error) => {
-        // Handle error
+      
       }
     );
   }
@@ -56,7 +55,7 @@ export class EmployeeAddComponent implements OnInit {
         this.dialogRef.close(true);
       },
       (error) => {
-        // Handle error
+      
         console.log(error);
         this.dialogRef.close(true);
         this.toastr.error('Alert', 'Please Verify your details');

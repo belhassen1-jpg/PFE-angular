@@ -3,9 +3,9 @@
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <select class="form-select" [(ngModel)]="searchCriteria" (change)="applyFilter()">
-      <option value="title">Title</option>
-      <option value="category">Category</option>
-      <option value="location">Location</option>
+      <option value="title">Titre</option>
+      <option value="category">Catégorie</option>
+      <option value="location">Emplacement</option>
     </select>
   </div>
   <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search...">
@@ -68,7 +68,7 @@
             <div class="solu_description">
               <p>
                 {{ joboffer.keywords }} </p>
-              <button type="button" class="read_more_btn" (click)="showDetails(joboffer)">Read More</button>
+              <button type="button" class="read_more_btn" (click)="showDetails(joboffer)">Lire la suite</button>
              
             </div>
           </div>

@@ -28,7 +28,7 @@ export class ConventionDeleteEmployeeComponent implements OnInit {
         this.conventions = response;
       },
       (error) => {
-        // Handle error here
+       
       }
     );
   }
@@ -38,17 +38,16 @@ export class ConventionDeleteEmployeeComponent implements OnInit {
     this.conventionService.deleteEmployeeFromConvention(conventionId, this.empId).subscribe(
       () => {
         console.log('Employee deleted from convention successfully.');
-        this.dialogRef.close(true); // Signal success and close dialog
+        this.dialogRef.close(true); 
       },
       (error) => {
         console.error('Error deleting employee from convention:', error);
-        // Optionally, you can handle errors here
       }
     );
   }
 
   closeDialog(): void {
-    this.dialogRef.close(false); // Signal cancellation and close dialog
+    this.dialogRef.close(false); 
   }
 
 }

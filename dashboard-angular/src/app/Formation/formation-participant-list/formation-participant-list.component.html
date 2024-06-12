@@ -1,19 +1,20 @@
-<h2 mat-dialog-title>All Participants from Formation</h2>
+<h2 mat-dialog-title>Tous les Participants à la Formation</h2>
 <div mat-dialog-content *ngIf="sessions">
     <ng-container *ngFor="let session of sessions">
-        <ng-container *ngIf="session.id === data.sessionId">
-            <!-- Display participants for the selected session -->
-            <mat-form-field>
-                <mat-label>Employee</mat-label>
-                <mat-select [(ngModel)]="empId" name="empId" required>
-                    <mat-option *ngFor="let participant of session.participants" [value]="participant.empId">
-                        {{ participant.firstName }} {{ participant.lastName }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <ng-container *ngIf="session.id === data.formationId">
+            <!-- Afficher les participants pour la session sélectionnée -->
+            <div class="participants-container">
+                <div class="participant-card" *ngFor="let participant of session.participants">
+                    <mat-card>
+                        <mat-card-content>
+                            <p>{{ participant.firstName }} {{ participant.lastName }}</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
         </ng-container>
     </ng-container>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="closeDialog()">Close</button>
+    <button mat-button (click)="closeDialog()">Fermer</button>
 </div>

@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment'; // Import environment configuration
+import { environment } from 'src/environments/environment'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanningService {
 
-  private baseUrl = `${environment.urlBackend}api/plannings/`; // Use baseUrl from environment configuration
+  private baseUrl = `${environment.urlBackend}api/plannings/`; 
 
   constructor(private http: HttpClient) { }
 
   createPlanningWithEmployees(planning: any, employeIds: number[]): Observable<any> {
-    const queryParams = employeIds.join(','); // Convert employeIds array to a comma-separated string
+    const queryParams = employeIds.join(','); 
     const url = `${this.baseUrl}createWithEmployees?employeIds=${queryParams}`;
     return this.http.post<any>(url, planning);
   }
@@ -27,26 +27,26 @@ export class PlanningService {
     return this.http.get<any[]>(url);
   }
   
-  // Method to get the feuille de temps list of an employee
+  
   getFeuilleTempsForEmployee(employeId: number): Observable<any[]> {
     const url = `${this.baseUrl}feuillestemps?employeId=${employeId}`;
     return this.http.get<any[]>(url);
   }
-// Method to get the feuille de temps list of an employee
+
 getFeuilleTempsForUser(): Observable<any[]> {
   const userId = localStorage.getItem('userId');
   const url = `${this.baseUrl}feuillestempsForUser?userId=${userId}`;
   return this.http.get<any[]>(url);
 }
 
-// Method to create and associate FeuilleTemps
+
 createAndAssociateFeuilleTemps(planningId: number, feuilleTemps: any): Observable<any> {
-  const userId = localStorage.getItem('userId'); // Get the userId from localStorage
+  const userId = localStorage.getItem('userId'); 
   const url = `${this.baseUrl}feuilleTemps/planning/${planningId}/employe/${userId}`;
   return this.http.post<any>(url, feuilleTemps);
 }
 
-  // Method to get total hours worked for a specific employee
+  
   getTotalHoursWorkedForEmployee(employeId: number): Observable<any> {
     const url = `${this.baseUrl}${employeId}/total-heures-travaillees`;
     return this.http.get<any>(url);

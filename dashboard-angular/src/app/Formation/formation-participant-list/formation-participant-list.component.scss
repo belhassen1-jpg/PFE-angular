@@ -1,0 +1,23 @@
+.participants-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .participant-card {
+    flex: 1 1 calc(33% - 15px); /* Responsive design: 3 cards per row, with gap */
+    min-width: 150px; /* Minimum width for smaller screens */
+  }
+  
+  mat-card {
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  mat-card-content p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+  }

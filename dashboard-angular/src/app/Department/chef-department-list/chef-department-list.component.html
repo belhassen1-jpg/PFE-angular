@@ -1,62 +1,61 @@
 <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-  </mat-form-field>
-  
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-  
+  <mat-label>Filtrer</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
       <!-- ID Column -->
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{ row.chefId }} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let row"> {{ row.chefId }} </td>
       </ng-container>
-  
-      <!-- Name Column -->
+
+      <!-- Prénom Column -->
       <ng-container matColumnDef="firstName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> first Name </th>
-        <td mat-cell *matCellDef="let row"> {{ row.employe.firstName }} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>
+          <td mat-cell *matCellDef="let row"> {{ row.employe.firstName }} </td>
       </ng-container>
-  
-      <!-- Name Column -->
+
+      <!-- Nom Column -->
       <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> last Name </th>
-        <td mat-cell *matCellDef="let row"> {{ row.employe.lastName }} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+          <td mat-cell *matCellDef="let row"> {{ row.employe.lastName }} </td>
       </ng-container>
-  
-      <!-- Name Column -->
-     <ng-container matColumnDef="specialisation">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> specialisation </th>
-        <td mat-cell *matCellDef="let row"> {{ row.specialisation }} </td>
+
+      <!-- Spécialisation Column -->
+      <ng-container matColumnDef="specialisation">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Spécialisation </th>
+          <td mat-cell *matCellDef="let row"> {{ row.specialisation }} </td>
       </ng-container>
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let row">
-          <button mat-icon-button color="warn" (click)="deleteChefDep(row.chefId)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </td>
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let row">
+              <button mat-icon-button color="warn" (click)="deleteChefDep(row.chefId)">
+                  <mat-icon>delete</mat-icon>
+              </button>
+          </td>
       </ng-container>
-  
+
       <!-- Define columns to display -->
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
+
       <!-- Row shown when there is no matching data -->
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" [attr.colspan]="displayedColumns.length">No data matching the filter "{{ input.value }}"</td>
+          <td class="mat-cell" [attr.colspan]="displayedColumns.length">Aucune donnée ne correspond au filtre "{{ input.value }}"</td>
       </tr>
-    </table>
-  
-    <!-- Pagination -->
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of items"></mat-paginator>
-  </div>
-  
-  <!-- Add Item Button -->
-  <br>
-  <div>
-    <button mat-raised-button color="primary" (click)="addChefDepartment()">Add Chef Department</button>
-  </div>
-  
+  </table>
+
+  <!-- Pagination -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Sélectionner la page des éléments"></mat-paginator>
+</div>
+
+<!-- Bouton Ajouter un élément -->
+<br>
+<div>
+  <button mat-raised-button color="primary" (click)="addChefDepartment()">Ajouter Chef de Département</button>
+</div>

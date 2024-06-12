@@ -11,10 +11,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CongeAddComponent implements OnInit {
   congeForm: FormGroup;
-  types = ['ANNUE','MALADIE' , 'SANS_SOLDE']; // Example types, adjust as needed.
+  types = ['ANNUE','MALADIE' , 'SANS_SOLDE']; 
 
   constructor(
-    private fb: FormBuilder,private dialogRef: MatDialogRef<CongeAddComponent>,
+    private fb: FormBuilder,
     private congeService: CongeService,
     private toastr: ToastrService
   ) {}
@@ -29,13 +29,12 @@ export class CongeAddComponent implements OnInit {
 
   onSubmit(): void {
     if (this.congeForm.valid) {
-      // Assuming the user ID is provided in some way, e.g., from a service or local storage
       this.congeService.creerDemandeConge(this.congeForm.value).subscribe(
         response => {
           this.toastr.success('Your Congé request has been submitted.');
 
           console.log('Conge added:', response);
-          
+        
         },
         error => {
           this.toastr.error('An error occurred: ' + error.message);

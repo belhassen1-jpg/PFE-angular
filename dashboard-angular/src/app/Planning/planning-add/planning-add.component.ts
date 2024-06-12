@@ -21,7 +21,7 @@ export class PlanningAddComponent implements OnInit {
       nomProjet: ['', Validators.required],
       dateDebutValidite: ['', Validators.required],
       dateFinValidite: ['', Validators.required],
-      employeIds: ['', Validators.required] // Assuming you have an input field for employeIds
+      employeIds: ['', Validators.required] 
     });
   }
   ngOnInit(): void {
@@ -42,14 +42,13 @@ export class PlanningAddComponent implements OnInit {
   onSubmit(): void {
     if (this.createPlanningForm.valid) {
       const planningData = this.createPlanningForm.value;
-      const employeIds = planningData.employeIds; // No need to split
-      delete planningData.employeIds; // Remove employeIds from planningData
+      const employeIds = planningData.employeIds; 
+      delete planningData.employeIds; 
       this.planningService.createPlanningWithEmployees(planningData, employeIds).subscribe({
         next: (res) => {
           console.log('Planning created successfully:', res);
           this.dialogRef.close(true);
           this.toastr.success('Alert', 'Planning Added');
-          // Clear the form after successful submission
           this.createPlanningForm.reset();
         },
         error: (err) => {

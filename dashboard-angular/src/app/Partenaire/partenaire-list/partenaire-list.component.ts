@@ -27,7 +27,7 @@ export class PartenaireListComponent {
 
   getAllPartenaires(): void {
     this.partenaireService.getPartenaires().subscribe({
-      next: (res: any[]) => { // Explicitly type the response as an array of any
+      next: (res: any[]) => { 
         console.log('Partenaires:', res);
 
         this.dataSource = new MatTableDataSource(res);

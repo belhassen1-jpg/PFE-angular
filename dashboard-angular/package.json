@@ -44,6 +44,7 @@
     "@types/cross-storage": "^0.8.33",
     "@types/date-fns": "^2.6.0",
     "@types/jasmine": "~4.3.0",
+    "@types/sockjs-client": "^1.5.4",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",

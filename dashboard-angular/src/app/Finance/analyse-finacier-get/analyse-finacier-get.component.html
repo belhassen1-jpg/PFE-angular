@@ -1,19 +1,19 @@
 <div *ngIf="analyse">
-<mat-card class="financial-analysis-card">
-  <mat-card-header class="header">
-    <mat-card-title class="title">Financial Analysis</mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="content">
-    <div class="summary">
-      <p><strong>Resume:</strong> {{ analyse.resume }}</p>
-      <p><strong>Recommendations:</strong> {{ analyse.recommandations }}</p>
-    </div>
-    <div class="details">
-      <p><strong>Date of Analysis:</strong> {{ analyse.dateAnalyse | date }}</p>
-      <p><strong>Monthly Savings Rate:</strong> {{ analyse.tauxEpargneMensuel | percent }}</p>
-      <p><strong>Average Monthly Expense:</strong> {{ analyse.depenseMoyenneMensuelle | currency:'EUR':'symbol':'1.2-2' }}</p>
-      <p><strong>Average Monthly Savings:</strong> {{ analyse.epargneMoyenneMensuelle | currency:'EUR':'symbol':'1.2-2' }}</p>
-    </div>
-  </mat-card-content>
-</mat-card>
+  <mat-card class="financial-analysis-card">
+    <mat-card-header class="header">
+      <mat-card-title class="title">Analyse Financière</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <div class="summary">
+        <p><strong>Résumé :</strong> {{ analyse.resume }}</p>
+        <p><strong>Recommandations :</strong> {{ analyse.recommandations }}</p>
+      </div>
+      <div class="details">
+        <p><strong>Date de l'analyse :</strong> {{ analyse.dateAnalyse | date }}</p>
+        <p><strong>Taux d'épargne mensuel :</strong> {{ analyse.tauxEpargneMensuel | percent }}</p>
+        <p><strong>Dépense mensuelle moyenne :</strong> {{ analyse.depenseMoyenneMensuelle | currency:'EUR':'symbol':'1.2-2' }}</p>
+        <p><strong>Épargne mensuelle moyenne :</strong> {{ analyse.epargneMoyenneMensuelle | currency:'EUR':'symbol':'1.2-2' }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -6,13 +6,13 @@
       <div class="col-12 col-sm-8 col-lg-6">
         <!-- Section Heading-->
         <div class="section_heading text-center">
-          <h2>All Formations here!</h2>
+          <h2>Toutes les Formations ici !</h2>
           <div class="line"></div>
         </div>
       </div>
     </div>
     <br>
-    <p>   Number of Formations Participated In : {{ NumberOfformationsParticipated }}</p>
+    <p>Nombre de Formations Participees : {{ NumberOfformationsParticipated }}</p>
     <br>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -21,7 +21,7 @@
           <option value="lieu">Lieu</option>
         </select>
       </div>
-      <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search...">
+      <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Rechercher...">
     </div>
     <div class="row">
       <div class="col-12">
@@ -38,7 +38,7 @@
                   <div class="timeline-icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
                   <div class="timeline-text">
                     <a href="javascript:void(0)" (click)="participateInFormation(formation.id)">
-                      <h6>{{ formation.intitule }} at {{ formation.lieu }}</h6>
+                      <h6>{{ formation.intitule }} à {{ formation.lieu }}</h6>
                       <p>{{ formation.description }}</p>
                     </a>
                   </div>

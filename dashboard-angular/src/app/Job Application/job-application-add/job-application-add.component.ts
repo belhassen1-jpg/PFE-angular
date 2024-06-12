@@ -9,10 +9,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./job-application-add.component.scss']
 })
 export class JobApplicationAddComponent {
-  jobApplication: any = {}; // Object to store the job application data
+  jobApplication: any = {}; 
   
-  resumeFile: File | null = null; // Variable to store resume file
-  coverLetterFile: File | null = null; // Variable to store cover letter file
+  resumeFile: File | null = null; 
+  coverLetterFile: File | null = null; 
 
   applicantName: string = '';
   applicantEmail: string = '';
@@ -23,7 +23,7 @@ export class JobApplicationAddComponent {
 
   constructor(
     private dialogRef: MatDialogRef<JobApplicationAddComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, // Inject the data passed from the dialog open method
+    @Inject(MAT_DIALOG_DATA) public data: any, 
     private jobApplicationService: JobApplicationService,
     private toastr: ToastrService
   ) {}
@@ -40,7 +40,7 @@ export class JobApplicationAddComponent {
   }
 
   submitApplication(): void {
-    // Create FormData object to send files along with other form data
+    
     const formData = new FormData();
     formData.append('jobOfferId', this.data.jobOfferId);
     formData.append('userId', this.data.userId);
@@ -53,21 +53,21 @@ export class JobApplicationAddComponent {
       formData.append('yearsOfExperience', this.yearsOfExperience.toString());
     }
     
-    // Append resume file if it exists
+    
     if (this.resumeFile) {
       formData.append('resume', this.resumeFile);
     }
     
-    // Append cover letter file if it exists
+    
     if (this.coverLetterFile) {
       formData.append('coverLetter', this.coverLetterFile);
     }
-    // Append other form fields as needed
+    
 
     this.jobApplicationService.submitApplication(formData).subscribe(
       (response) => {
         console.log("Job application submitted successfully:", response);
-        this.dialogRef.close(true); // Close the dialog
+        this.dialogRef.close(true); 
         this.toastr.success('Alert', 'Job Application Submitted');
       },
       (error) => {

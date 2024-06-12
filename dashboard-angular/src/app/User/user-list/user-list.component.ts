@@ -34,7 +34,7 @@ export class UserListComponent {
 
   getAllUsers(): void {
     this.userService.getUserList().subscribe({
-      next: (res: any[]) => { // Explicitly type the response as an array of any
+      next: (res: any[]) => { 
         console.log('Users:', res);
 
         this.dataSource = new MatTableDataSource(res);

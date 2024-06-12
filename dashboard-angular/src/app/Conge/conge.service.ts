@@ -20,14 +20,13 @@ export class CongeService {
     return this.http.get(`${this.baseUrl}${id}`);
   }
 
-  // Update to include the user ID in the request
+
   creerDemandeConge(demande: any): Observable<any> {
     const userId = localStorage.getItem('userId');
     return this.http.post(`${this.baseUrl}${userId}`, demande);
   }
 
   approuverDemandeConge(demandeId: number, empId: number, statut: string): Observable<any> {
-    // Note: The statut is sent as a query parameter to match the Spring Boot controller expectation
     const params = new HttpParams().set('statut', statut);
     return this.http.put(`${this.baseUrl}${demandeId}/approuver/${empId}`, {}, { params });
   }

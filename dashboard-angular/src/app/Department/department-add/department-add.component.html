@@ -1,23 +1,23 @@
-<h1 mat-dialog-title>Add Department</h1>
+<h1 mat-dialog-title>Ajouter un Département</h1>
 <form #depForm="ngForm">
-<div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>nom</mat-label>
-    <input matInput [(ngModel)]="newDep.nom" name="nom" required #nom="ngModel">
-    <mat-error *ngIf="nom.invalid && (nom.dirty || nom.touched)">
-      <span *ngIf="nom.errors?.['required']">Name is required</span>
-    </mat-error>
-  </mat-form-field>  
-  <mat-form-field>
-    <mat-label>description</mat-label>
-    <input matInput [(ngModel)]="newDep.description" name="description" required #description="ngModel">
-    <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
-      <span *ngIf="description.errors?.['required']">Description is required</span>
-    </mat-error>
-  </mat-form-field>  
-</div>
-<div mat-dialog-action [align]="'end'">
-  <button mat-raised-button color="warn" mat-dialog-close>Close</button>     
-  <button mat-raised-button color="primary" (click)="addDep()" [disabled]="depForm.invalid">Add</button>
-</div>
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Nom</mat-label>
+            <input matInput [(ngModel)]="newDep.nom" name="nom" required #nom="ngModel">
+            <mat-error *ngIf="nom.invalid && (nom.dirty || nom.touched)">
+                <span *ngIf="nom.errors?.['required']">Le nom est requis</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input matInput [(ngModel)]="newDep.description" name="description" required #description="ngModel">
+            <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
+                <span *ngIf="description.errors?.['required']">La description est requise</span>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-action [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>    
+        <button mat-raised-button color="primary" (click)="addDep()" [disabled]="depForm.invalid">Ajouter</button>
+    </div>
 </form>

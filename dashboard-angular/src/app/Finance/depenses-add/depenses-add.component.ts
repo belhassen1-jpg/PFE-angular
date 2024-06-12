@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./depenses-add.component.scss']
 })
 export class DepensesAddComponent {
-  newDepense: any = {}; // Object to store the new teacher data
+  newDepense: any = {}; 
 
   constructor(
     private dialogRef: MatDialogRef<DepensesAddComponent>,private toastr: ToastrService,
@@ -23,7 +23,6 @@ export class DepensesAddComponent {
         this.toastr.success('Alert', 'Depense Added');
       },
       (error) => {
-        // Handle error
         console.log(error);
         this.toastr.error('Alert', 'Please Verify your details');
       }

@@ -1,0 +1,19 @@
+.form-field {
+    margin-bottom: 16px; /* Adjust the value as needed */
+  }
+  
+  mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px; /* Space between form fields and actions */
+  }
+  
+  button {
+    margin-left: 8px; /* Space between buttons */
+  }
+  

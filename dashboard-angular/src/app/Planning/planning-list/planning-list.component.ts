@@ -31,7 +31,7 @@ export class PlanningListComponent {
 
   getAllPlannings(): void {
     this.planningService.getAllPlanningsWithDetails().subscribe({
-      next: (res: any[]) => { // Explicitly type the response as an array of any
+      next: (res: any[]) => { 
         console.log('Plannings:', res);
 
         this.dataSource = new MatTableDataSource(res);
@@ -61,7 +61,7 @@ export class PlanningListComponent {
   }
 
   viewFeuilleTemps(planId: number): void {
-    // this.dialogRef.close(true);
+    
     this.router.navigate(['/dashboard/feuille-temps-plan', planId]);
   }
 

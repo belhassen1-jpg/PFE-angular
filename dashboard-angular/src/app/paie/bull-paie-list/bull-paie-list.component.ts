@@ -34,7 +34,7 @@ export class BullPaieListComponent {
 
   getAllBullPaies(empId: number): void {
     this.paieService.obtenirBulletinsPaie(empId).subscribe({
-      next: (res: any[]) => { // Explicitly type the response as an array of any
+      next: (res: any[]) => { 
         console.log('BullPaies:', res);
 
         this.dataSource = new MatTableDataSource(res);
@@ -54,8 +54,6 @@ export class BullPaieListComponent {
     const dialogRef = this.dialog.open(BullPaieAddComponent, {
       width: '30%',
       data: { empId }
-      // height: '80%',
-      // position: { top: '10%', left: '30%' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

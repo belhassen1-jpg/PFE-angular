@@ -14,6 +14,7 @@ import { UserService } from 'src/app/User/user.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent {
@@ -22,7 +23,7 @@ export class HeaderComponent {
   @Output() toggleMobileNav = new EventEmitter<void>();
   @Output() toggleMobileFilterNav = new EventEmitter<void>();
   @Output() toggleCollapsed = new EventEmitter<void>();
-
+  isChatOpen = false;
   showFiller = false;
 
   constructor(public dialog: MatDialog, public router: Router,
@@ -43,4 +44,8 @@ logout(): void {
   navigateToProfile() {
     this.router.navigateByUrl('/profile');
   }
+  openChat() {
+    this.isChatOpen = !this.isChatOpen;
+  }
+
 }

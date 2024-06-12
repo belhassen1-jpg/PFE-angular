@@ -31,7 +31,7 @@ export class JobOfferGetComponent implements OnInit {
   getJobOfferDetails(id: number): void {
     this.jobOfferService.getJobOfferById(id).subscribe(
       (data: any) => {
-        this.jobOffer = data; // Assuming the API returns the details of the job offer
+        this.jobOffer = data; 
         console.log(this.jobOffer);
       },
       (error) => {
@@ -43,7 +43,7 @@ export class JobOfferGetComponent implements OnInit {
   openApplicationDialog(): void {
     const dialogRef = this.dialog.open(JobApplicationAddComponent, {
       width: '30%',
-      data: { jobOfferId: this.jobOffer.id, userId: this.userId } // Pass any data required by the dialog component
+      data: { jobOfferId: this.jobOffer.id, userId: this.userId } 
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  profile: any; // Change this type based on your actual profile structure
+  profile: any; 
   updatedProfile: any;
 
   constructor(private userService: UserService, private toastr: ToastrService) { }
@@ -21,7 +21,6 @@ export class UserProfileComponent implements OnInit {
     this.userService.getProfile().subscribe(
       (response) => {
         this.profile = response;
-        // Copy the profile properties to updatedProfile
         this.updatedProfile = { ...this.profile };
       },
       (error) => {
@@ -30,35 +29,26 @@ export class UserProfileComponent implements OnInit {
     );
   }
 
-  updateProfile(): void {
-    this.userService.updateProfile(this.updatedProfile).subscribe(
-      (response) => {
-        console.log('Profile updated successfully:', response);
-        // Optionally, reload the updated profile after a successful update
-        this.getProfile();
-       this.toastr.success('Alert', 'Profile updated successfully');
-
-      },
-      (error) => {
-        console.error('Failed to update profile:', error);
-        this.toastr.error('Error', 'Failed to update profile');
-
-      }
-    );
+  updateProfile2(): void {
+    if (this.updatedProfile && this.updatedProfile.idUser) {
+     
+      this.userService.updateUser2(this.updatedProfile.idUser, this.updatedProfile).subscribe(
+        (response) => {
+          
+          this.toastr.success('Profile updated successfully');
+          this.getProfile(); // Reload the profile
+        },
+        (error) => {
+        
+          this.toastr.error('Failed to update profile');
+          console.error('Failed to update profile:', error);
+        }
+      );
+    } else {
+ 
+      this.toastr.error('User ID is required for updating profile');
+    }
   }
 
-  // viewReport(): void {
-  //   // Assuming you have a method in your employee service to fetch the report
-  //   this.employeeService.getEmployeeReportForUser().subscribe(
-  //     (response: Blob) => {
-  //       const file = new Blob([response], { type: 'application/pdf' });
-  //       const fileURL = URL.createObjectURL(file);
-  //       window.open(fileURL, '_blank');
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching employee report:', error);
-  //       // Handle error
-  //     }
-  //   );
-  // }
+
 }

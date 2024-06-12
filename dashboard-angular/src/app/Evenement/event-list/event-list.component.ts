@@ -15,10 +15,10 @@ import { EventParticipantListComponent } from '../event-participant-list/event-p
 })
 export class EventListComponent implements OnInit {
   events: any[] = [];
-  pagedEvents: any[] = []; // Array to store events for current page
-  pageSize = 3; // Number of events per page
-  pageIndex = 0; // Current page index
-  originalEvents: any[] = []; // Store the original list
+  pagedEvents: any[] = []; 
+  pageSize = 3; 
+  pageIndex = 0; 
+  originalEvents: any[] = []; 
   searchCriteria: string = 'title';
   searchTerm: string = '';
 

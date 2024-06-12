@@ -21,16 +21,16 @@ export class FeuilleTempsAcceptComponent {
       () => {
         console.log('Validation successful.');
         this.toastr.success('Validation successful.', 'Alert');
-        this.dialogRef.close(true); // Signal success and close dialog
+        this.dialogRef.close(true); 
       },
       (error) => {
         console.error('Error validating participation:', error);
-        // Optionally, you can handle errors here
+        
       }
     );
   }
 
   closeDialog(): void {
-    this.dialogRef.close(false); // Signal cancellation and close dialog
+    this.dialogRef.close(false); 
   }
 }

@@ -1,16 +1,16 @@
 <div class="demission-form-container">
-    <form class="demission-form" [formGroup]="demissionForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill">
-        <mat-label>Motif</mat-label>
-        <textarea matInput formControlName="motif" placeholder="Enter your reason for resignation"></textarea>
-        <mat-error *ngIf="demissionForm.controls['motif'].invalid">
-          Please enter a valid reason.
-        </mat-error>
-      </mat-form-field>
-  
-      <div class="actions">
-        <button mat-stroked-button color="primary" type="submit" [disabled]="!demissionForm.valid">Submit</button>
-        <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
-      </div>
-    </form>
-  </div>
+  <form class="demission-form" [formGroup]="demissionForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Motif</mat-label>
+      <textarea matInput formControlName="motif" placeholder="Entrez votre raison de démission"></textarea>
+      <mat-error *ngIf="demissionForm.controls['motif'].invalid">
+        Veuillez saisir une raison valide.
+      </mat-error>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-stroked-button color="primary" type="submit" [disabled]="!demissionForm.valid">Soumettre</button>
+      <button mat-stroked-button color="warn" (click)="onCancel()">Annuler</button>
+    </div>
+  </form>
+</div>

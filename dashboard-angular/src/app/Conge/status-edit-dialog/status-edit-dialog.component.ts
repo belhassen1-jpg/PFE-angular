@@ -27,12 +27,10 @@ export class StatusEditDialogComponent {
     console.log('Sending PUT request with userID:', this.data.empId); 
     this.congeService.approuverDemandeConge(this.data.demandeId, this.data.empId, this.currentStatus).subscribe(
       response => {
-        // Process the response, show a message to the user
         this.dialogRef.close(response);
       },
       error => {
-        // Handle the error, show a message to the user
-        console.error('PUT request error:', error); // Log the error
+        console.error('PUT request error:', error); 
         this.dialogRef.close();
       }
     );

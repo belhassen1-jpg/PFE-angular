@@ -30,7 +30,7 @@ export class EmpBullPaieListComponent {
 
   getAllBullPaies(): void {
     this.paieService.getBullPaiesForUser().subscribe({
-      next: (res: any[]) => { // Explicitly type the response as an array of any
+      next: (res: any[]) => { 
         console.log('BullPaies:', res);
 
         this.dataSource = new MatTableDataSource(res);
