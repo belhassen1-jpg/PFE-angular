@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlBackend:'http://localhost:8090/GRH/'
+  urlBackend:'http://192.168.1.100:8090/GRH/'
 };
 
 /*
