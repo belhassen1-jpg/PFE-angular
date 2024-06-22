@@ -27,11 +27,11 @@ export class SidebarComponent implements OnInit {
 const roleNavItemsMap: { [key: string]: string[] } = {
     Admin: ['Tableau de bord', 'Utilisateur', 'Employé', 'Département', 'Chef de département',
      'Offres emploi', 'Candidatures emploi',
-       'Planning', 'Événement', 'Demande événement','Convention','Demande de convention', 'Partenaire', 'Liste de congés','Liste de démissions','Formation'],
+       'Projets', 'Événement', 'Demande événement','Convention','Demande de convention', 'Partenaire', 'Liste de congés','Liste de démissions','Formation'],
 
       RH: ['Tableau de bord', 'Utilisateur', 'Employé', 'Département', 'Chef de département',
      'Offres emploi', 'Candidatures emploi',
-       'Planning', 'Événement', 'Demande événement','Convention','Demande de convention', 'Partenaire', 'Liste de congés','Liste de démissions','Formation'],
+       'Projets', 'Événement', 'Demande événement','Convention','Demande de convention', 'Partenaire', 'Liste de congés','Liste de démissions','Formation'],
      
     Employee: ['Tableau de bord', 'Dépenses', 'Objectifs épargne', 'Analyse financière', 'Feuille de Temps',
      'Bulletin de Paie', 'Liste événements','Liste de conventions','Liste de formation']

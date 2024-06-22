@@ -55,9 +55,8 @@ updateUser2(id: number, user: any): Observable<any> {
 
   resetPassword(verificationCode: string, newPassword: string, confirmPassword: string): Observable<any> {
     const url = `${this.baseUrl}reset-password/${verificationCode}?newPassword=${newPassword}&confirmPassword=${confirmPassword}`;
-    return this.http.put(url, null); 
+    return this.http.put(url, null, { responseType: 'text' });  
   }
-
   getProfile(): Observable<any> {
     let username = localStorage.getItem('username');
     const url = `${this.baseUrl}profile/${username}`;

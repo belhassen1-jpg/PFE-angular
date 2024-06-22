@@ -1,0 +1,53 @@
+.blank-layout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full height */
+    background: linear-gradient(135deg, #000, #ff8c00); /* Gradient from black to orange */
+  }
+  
+  .cardWithShadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    width: 100%; /* Adjust width as necessary */
+  }
+  
+  .cardWithShadow:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mat-card-content {
+    padding: 20px;
+    color: #fff; /* White text for better readability on dark background */
+  }
+  
+  input.mat-input-element {
+    color: #fff; /* White text input */
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+    border: 1px solid #fff; /* White border */
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #fff; /* White outline */
+  }
+  
+  .mat-form-field-label {
+    color: #fff; /* White label */
+  }
+  
+  button.mat-flat-button {
+    background-color: #ff8c00; /* Orange button */
+    color: #000; /* Black text */
+    margin-top: 10px; /* Margin on top */
+    padding: 10px 20px; /* Padding inside the button */
+  }
+  
+  button.mat-flat-button:hover {
+    background-color: #e07c00; /* Darker orange on hover */
+  }
+  
+  
+  
+  a:hover {
+    color: #e07c00; /* Darker orange on hover */
+  }

@@ -55,7 +55,7 @@ export const navItems: NavItem[] = [
     route: '/dashboard/jobapplications',
   },
   {
-    displayName: 'Planning',
+    displayName: 'Projets',
     iconName: 'report',
     route: '/dashboard/planninglist',
   },

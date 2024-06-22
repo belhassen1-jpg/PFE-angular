@@ -1,134 +1,103 @@
-<div class="blank-layout-container justify-content-center align-items-center bg-light-primary">
-  <div class="position-relative row w-100 h-100 bg-gradient justify-content-center">
-      <div class="col-lg-4 d-flex align-items-center">
-          <mat-card class="cardWithShadow boxed-auth">
-              <mat-card-content class="p-32">
-                  <div class="text-center">
-                      <a [routerLink]="['/dashboard']">
-                          <img src="./assets/images/logos/sascode.jpg" class="align-middle m-2" alt="logo" />
-                      </a>
-                  </div>
-
-                  <form class="m-t-30" #userForm="ngForm">
-                      <div class="row">
-                          <!-- Nom d'utilisateur -->
-                          <div class="input-group col-lg-6 mb-4">
-                              <mat-form-field class="w-100" appearance="outline">
-                                  <mat-label>Nom d'utilisateur</mat-label>
-                                  <input matInput [(ngModel)]="newUser.username" name="username" required #username="ngModel" placeholder="Nom d'utilisateur">
-                              </mat-form-field>
-                              <div *ngIf="username.invalid && (username.dirty || username.touched)">
-                                  <span *ngIf="username.errors?.['required']" style="color:red;">Le nom d'utilisateur est requis</span>
-                              </div>
-                          </div>
-
-                          <!-- Mot de passe -->
-                          <div class="input-group col-lg-6 mb-4">
-                              <mat-form-field class="w-100" appearance="outline">
-                                  <mat-label>Mot de passe</mat-label>
-                                  <input matInput [(ngModel)]="newUser.password" name="password" type="password" required #password="ngModel" placeholder="Mot de passe">
-                              </mat-form-field>
-                              <div *ngIf="password.invalid && (password.dirty || password.touched)">
-                                  <span *ngIf="password.errors?.['required']" style="color:red;">Le mot de passe est requis</span>
-                              </div>
-                          </div>
-
-                          <!-- Prénom -->
-                          <div class="input-group col-lg-6 mb-4">
-                              <mat-form-field class="w-100" appearance="outline">
-                                  <mat-label>Prénom</mat-label>
-                                  <input matInput [(ngModel)]="newUser.firstName" name="firstName" required #firstName="ngModel" placeholder="Prénom">
-                              </mat-form-field>
-                              <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
-                                  <span *ngIf="firstName.errors?.['required']" style="color:red;">Le prénom est requis</span>
-                              </div>
-                          </div>
-
-                          <!-- Nom de famille -->
-                          <div class="input-group col-lg-6 mb-4">
-                              <mat-form-field class="w-100" appearance="outline">
-                                  <mat-label>Nom de famille</mat-label>
-                                  <input matInput [(ngModel)]="newUser.lastName" name="lastName" required #lastName="ngModel" placeholder="Nom de famille">
-                              </mat-form-field>
-                              <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-                                  <span *ngIf="lastName.errors?.['required']" style="color:red;">Le nom de famille est requis</span>
-                              </div>
-                          </div>
-
-                          <!-- Adresse email -->
-                          <div class="input-group col-lg-6 mb-4">
-                              <mat-form-field class="w-100" appearance="outline">
-                                  <mat-label>Adresse email</mat-label>
-                                  <input matInput [(ngModel)]="newUser.email" name="email" type="email" required email #email="ngModel" placeholder="Adresse email">
-                              </mat-form-field>
-                              <div *ngIf="email.invalid && (email.dirty || email.touched)">
-                                  <span *ngIf="email.errors?.['required']" style="color:red;">L'adresse email est requise</span>
-                                  <span *ngIf="email.errors?.['email']" style="color:red;">Entrez une adresse email valide</span>
-                              </div>
-                          </div>
-
-                          <!-- CIN -->
-                          <div class="input-group col-lg-6 mb-4">
-                              <mat-form-field class="w-100" appearance="outline">
-                                  <mat-label>CIN</mat-label>
-                                  <input matInput [(ngModel)]="newUser.cin" name="cin" type="number" required pattern="[0-9]{8}" #cin="ngModel" placeholder="CIN">
-                              </mat-form-field>
-                              <div *ngIf="cin.invalid && (cin.dirty || cin.touched)">
-                                  <span *ngIf="cin.errors?.['required']" style="color:red;">Le CIN est requis</span>
-                                  <span *ngIf="cin.errors?.['pattern']" style="color:red;">Le CIN doit comporter 8 chiffres</span>
-                              </div>
-                          </div>
-
-                          <!-- Adresse -->
-                          <div class="input-group col-lg-6 mb-4">
-                              <mat-form-field class="w-100" appearance="outline">
-                                  <mat-label>Adresse</mat-label>
-                                  <input matInput [(ngModel)]="newUser.address" name="address" required #address="ngModel" placeholder="Adresse">
-                              </mat-form-field>
-                              <div *ngIf="address.invalid && (address.dirty || address.touched)">
-                                  <span *ngIf="address.errors?.['required']" style="color:red;">L'adresse est requise</span>
-                              </div>
-                          </div>
-
-                          <!-- Numéro de téléphone -->
-                          <div class="input-group col-lg-6 mb-4">
-                              <mat-form-field class="w-100" appearance="outline">
-                                  <mat-label>Numéro de téléphone</mat-label>
-                                  <input matInput [(ngModel)]="newUser.phone" name="phone" type="number" required pattern="[0-9]{8}" #phone="ngModel" placeholder="Numéro de téléphone">
-                              </mat-form-field>
-                              <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
-                                  <span *ngIf="phone.errors?.['required']" style="color:red;">Le numéro de téléphone est requis</span>
-                                  <span *ngIf="phone.errors?.['pattern']" style="color:red;">Le numéro de téléphone doit comporter 8 chiffres</span>
-                              </div>
-                          </div>
-
-                          <!-- Date de naissance -->
-                          <div class="input-group col-lg-6 mb-4">
-                              <mat-form-field class="w-100" appearance="outline">
-                                  <mat-label>Date de naissance</mat-label>
-                                  <input matInput [matDatepicker]="birthDatePicker" [(ngModel)]="newUser.birthDate" name="birthDate" #birthDate="ngModel" required>
-                                  <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
-                                  <mat-datepicker #birthDatePicker></mat-datepicker>
-                                  <mat-error *ngIf="birthDate.invalid && (birthDate.dirty || birthDate.touched)">
-                                      <span *ngIf="birthDate.errors?.['required']">La date de naissance est requise</span>
-                                  </mat-error>
-                              </mat-form-field>
-                          </div>
-                      </div>
-
-                      <button mat-flat-button color="primary" class="w-100" (click)="registerUser()" [disabled]="userForm.invalid">
-                          S'inscrire
-                      </button>
-                      <!-- input -->
-                  </form>
-                  <span class="d-block f-w-500 text-center m-t-24">
-                      Vous avez déjà un compte ?
-                      <a href="http://localhost:5000/login" class="text-decoration-none text-primary f-w-500 f-s-14">
-                          Se connecter
-                      </a>
-                  </span>
-              </mat-card-content>
-          </mat-card>
-      </div>
+<div class="blank-layout-container">
+    <div class="position-relative row justify-content-center align-items-center h-100">
+        <div class="col-lg-4 d-flex align-items-center">
+            <mat-card class="cardWithShadow">
+                <mat-card-content>
+                    <div class="text-center">
+                        
+                            <img src="./assets/images/logos/sascode.jpg" alt="logo" />
+                      
+                    </div>
+  
+                    <form class="mt-4" #userForm="ngForm">
+                        <div class="row">
+                            <!-- Nom d'utilisateur -->
+                            <div class="col-lg-6 mb-4">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Nom d'utilisateur</mat-label>
+                                    <input matInput [(ngModel)]="newUser.username" name="username" required placeholder="Nom d'utilisateur">
+                                </mat-form-field>
+                            </div>
+  
+                            <!-- Mot de passe -->
+                            <div class="col-lg-6 mb-4">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Mot de passe</mat-label>
+                                    <input matInput [(ngModel)]="newUser.password" name="password" type="password" required placeholder="Mot de passe">
+                                </mat-form-field>
+                            </div>
+  
+                            <!-- Prénom -->
+                            <div class="col-lg-6 mb-4">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Prénom</mat-label>
+                                    <input matInput [(ngModel)]="newUser.firstName" name="firstName" required placeholder="Prénom">
+                                </mat-form-field>
+                            </div>
+  
+                            <!-- Nom de famille -->
+                            <div class="col-lg-6 mb-4">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Nom de famille</mat-label>
+                                    <input matInput [(ngModel)]="newUser.lastName" name="lastName" required placeholder="Nom de famille">
+                                </mat-form-field>
+                            </div>
+  
+                            <!-- Adresse email -->
+                            <div class="col-lg-6 mb-4">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Adresse email</mat-label>
+                                    <input matInput [(ngModel)]="newUser.email" name="email" type="email" required placeholder="Adresse email">
+                                </mat-form-field>
+                            </div>
+  
+                            <!-- CIN -->
+                            <div class="col-lg-6 mb-4">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>CIN</mat-label>
+                                    <input matInput [(ngModel)]="newUser.cin" name="cin" type="number" required placeholder="CIN">
+                                </mat-form-field>
+                            </div>
+  
+                            <!-- Adresse -->
+                            <div class="col-lg-6 mb-4">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Adresse</mat-label>
+                                    <input matInput [(ngModel)]="newUser.address" name="address" required placeholder="Adresse">
+                                </mat-form-field>
+                            </div>
+  
+                            <!-- Numéro de téléphone -->
+                            <div class="col-lg-6 mb-4">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Numéro de téléphone</mat-label>
+                                    <input matInput [(ngModel)]="newUser.phone" name="phone" type="number" required placeholder="Numéro de téléphone">
+                                </mat-form-field>
+                            </div>
+  
+                            <!-- Date de naissance -->
+                            <div class="col-lg-6 mb-4">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Date de naissance</mat-label>
+                                    <input matInput [matDatepicker]="birthDatePicker" [(ngModel)]="newUser.birthDate" name="birthDate" required>
+                                    <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #birthDatePicker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+  
+                        <button mat-flat-button color="primary" class="w-100" (click)="registerUser()" [disabled]="userForm.invalid">
+                            S'inscrire
+                        </button>
+                    </form>
+                    <span class="d-block text-center mt-3">
+                        Vous avez déjà un compte ?
+                        <a href="https://192.168.1.100:5000/login" class="text-decoration-none">
+                            Se connecter
+                        </a>
+                    </span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
   </div>
-</div>

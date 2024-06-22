@@ -9,6 +9,7 @@ import { ResetPasswordSmsComponent } from './User/reset-password-sms/reset-passw
 import { ResetPasswordComponent } from './User/reset-password/reset-password.component';
 
 const routes: Routes = [
+  
   {
     path: '',
     component: FullComponent,

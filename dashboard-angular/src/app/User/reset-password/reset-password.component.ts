@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -14,38 +15,34 @@ export class ResetPasswordComponent {
   confirmPassword: string;
   errorMessage: string;
 
-  constructor(private userService: UserService, private toastr: ToastrService) {}
+  constructor(private userService: UserService, private toastr: ToastrService,private router: Router ) {}
 
   resetPassword(): void {
     if (!this.verificationCode) {
       this.errorMessage = 'Verification code is required.';
       this.toastr.warning('Error', 'Verification code is required.');
-
+      return; 
     }
   
-     else if (this.newPassword !== this.confirmPassword) {
+    if (this.newPassword !== this.confirmPassword) {
       this.toastr.warning('Error', 'Passwords do not match');
-    } else {
-      
-      this.errorMessage = '';
-
- 
-      this.userService
-        .resetPassword(this.verificationCode, this.newPassword, this.confirmPassword)
-        .subscribe(
-          (response) => {
-            console.log('Password reset successfully:', response);
-            this.toastr.success('Alert', 'Password reset successfully');
-
-          
-          },
-          (error) => {
-            console.error('Failed to reset password:', error);
-            this.toastr.error('Error', 'Verify your code please.');
-
-         
-          }
-        );
+      return; 
     }
+
+    this.errorMessage = '';
+    this.userService
+      .resetPassword(this.verificationCode, this.newPassword, this.confirmPassword)
+      .subscribe(
+        response => {  
+          console.log('Password reset successfully:', response);
+          this.toastr.success('Alert', 'Password reset successfully');
+          window.location.href = 'https://192.168.1.100:5000';
+        },
+        error => {
+          console.error('Failed to reset password:', error);
+          this.toastr.error('Error', 'Verify your code please.');
+          this.errorMessage = 'Verify your code please.';
+        }
+      );
   }
 }
