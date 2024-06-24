@@ -36,7 +36,7 @@ export class ResetPasswordComponent {
         response => {  
           console.log('Password reset successfully:', response);
           this.toastr.success('Alert', 'Password reset successfully');
-          window.location.href = 'https://192.168.1.100:5000';
+          window.location.href = 'http://localhost:5000';
         },
         error => {
           console.error('Failed to reset password:', error);

@@ -47,13 +47,13 @@ export class LoginpageComponent {
           
           break;
         case 'Admin':
-          window.location.href = 'http://192.168.1.100:4200/login'
+          window.location.href = 'http://localhost:4200/login'
           break;
         case 'RH':
-          window.location.href = 'http://192.168.1.100:4200/login'
+          window.location.href = 'http://localhost:4200/login'
           break;
         case 'Employee':
-          window.location.href = 'http://192.168.1.100:4200/login'
+          window.location.href = 'http://localhost:4200/login'
             break;
         default:
          

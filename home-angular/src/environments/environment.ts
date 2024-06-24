@@ -4,12 +4,12 @@
 
 export const environment = {
   production: false,
-  urlBackend:'https://192.168.1.100:8090/GRH/'
+  urlBackend:'http://192.168.1.100:8090/GRH/'
 };
 
 /*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
+ * Fcsor easier debugging in development mode, you can import the following file
+ * to cssbelhaignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.

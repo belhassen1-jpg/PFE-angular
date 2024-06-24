@@ -40,10 +40,10 @@ export class UserLoginComponent {
       switch (userRole) {
         case 'Guest':
        
-          window.location.href = 'https://192.168.1.100:5000';
+          window.location.href = 'http://localhost:5000';
           break;
         case 'User':
-          window.location.href = 'https://192.168.1.100:5000';
+          window.location.href = 'http://localhost:5000';
           break;
         case 'Admin':
           this.router.navigate(['/dashboard']);

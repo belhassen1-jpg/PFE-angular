@@ -32,7 +32,7 @@
         </button>
         <ul class="dropdown-menu">
           <li><a *ngIf="!isAuthenticated()" class="dropdown-item" href="/login">Connexion</a></li>
-          <li><a *ngIf="!isAuthenticated()" class="dropdown-item" href="https://192.168.1.100:4200/register">S'inscrire</a></li>
+          <li><a *ngIf="!isAuthenticated()" class="dropdown-item" href="http://localhost:4200/register">S'inscrire</a></li>
           <li><a *ngIf="isAuthenticated()" class="dropdown-item" href="/profile">Profil</a></li>
           <li><a *ngIf="isAuthenticated()" class="dropdown-item" href="/jobapplications">Mes candidatures</a></li>
           <li><a *ngIf="isAuthenticated()" class="dropdown-item" (click)="logout()">Déconnexion</a></li>

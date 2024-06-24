@@ -21,8 +21,8 @@ export class WebSocketService {
 
   constructor() {
     this.stompClient = new Client({
-      brokerURL: 'ws://192.168.1.100:8090/GRH/ws',
-      webSocketFactory: () => new SockJS('https://192.168.1.100:8090/GRH/ws'),
+      brokerURL: 'ws://localhost:8090/GRH/ws',
+      webSocketFactory: () => new SockJS('http://localhost:8090/GRH/ws'),
       onConnect: this.onConnect,
       onStompError: this.onError,
       onWebSocketClose: this.onWebSocketClose,
