@@ -1,0 +1,133 @@
+pipeline {
+    agent any
+
+    environment {
+        MAVEN_OPTS = "-Xms256m -Xmx512m"
+    }
+
+    stages {
+        stage('Verify Network') {
+            steps {
+                script {
+                    try {
+                        sh 'ping -c 4 github.com'
+                        sh 'curl -I https://github.com'
+                    } catch (Exception e) {
+                        error "Network issue: ${e.message}"
+                    }
+                }
+            }
+        }
+        stage('Checkout') {
+            steps {
+                echo 'Récupération du code depuis ma branche GitHub...'
+                git branch: 'belhassen', url: 'https://github.com/belhassen1-jpg/PFE-Spring2.git'
+            }
+        }
+        stage('MVN Clean & Install') {
+            steps {
+                script {
+                    try {
+                        sh 'mvn clean install'
+                    } catch (Exception e) {
+                        currentBuild.result = 'FAILURE'
+                        error "Build failed during Maven Clean & Install: ${e.message}"
+                    }
+                }
+            }
+        }
+        stage('MVN Compile') {
+            steps {
+                script {
+                    try {
+                        sh 'mvn compile'
+                    } catch (Exception e) {
+                        currentBuild.result = 'FAILURE'
+                        error "Build failed during Maven Compile: ${e.message}"
+                    }
+                }
+            }
+        }
+        stage('Mockito Tests') {
+            steps {
+                script {
+                    try {
+                        sh 'mvn test'
+                    } catch (Exception e) {
+                        currentBuild.result = 'FAILURE'
+                        error "Build failed during Mockito Tests: ${e.message}"
+                    }
+                }
+            }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }
+        stage('Nexus Jar') {
+            steps {
+                    sh 'mvn deploy -DskipTests'
+                }
+        }
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t  belhassen12/backrh-1.0.0:1.0 .'
+            }
+        }
+        stage('Deploy image') {
+            steps {
+                script {
+                    def dockerUsername = 'belhassen12'
+                    def dockerPassword = 'Knanibelha'  // Remplacez par votre mot de passe réel
+
+                    sh "echo $dockerPassword | docker login -u $dockerUsername --password-stdin"
+                    sh 'docker push belhassen12/backrh-1.0.0:1.0'
+                }
+            }
+        }
+        
+            stage('Docker compose') {
+     steps {
+       
+           sh 'docker compose up -d'
+          
+        
+     }
+     }
+       stage('Grafana Prometheus') {
+     steps {
+       
+          sh '''
+          docker start prometheus
+          docker start grafana
+          '''
+          
+        
+    }
+   }
+       stage('cAdvisor') {
+    steps {
+       
+          sh '''
+          docker start cadvisor-Correct2
+          '''
+          
+        
+    }
+   }
+    }
+}
+    post {
+        always {
+            echo 'Cleaning up workspace...'
+            cleanWs()
+        }
+        success {
+            echo 'Build completed successfully.'
+        }
+        failure {
+            echo 'Build failed. Please check the logs for details.'
+        }
+    }
+
